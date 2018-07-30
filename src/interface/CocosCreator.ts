@@ -69,10 +69,10 @@ export interface Node extends MetaBaseObject {
   _parent: MetaNodeIdObj | null;
   _children: MetaNodeIdObj[];
   _contentSize: Size;
-  _rotationX: number,
-  _rotationY: number,
-  _scaleX: number,
-  _scaleY: number,
+  _rotationX: number;
+  _rotationY: number;
+  _scaleX: number;
+  _scaleY: number;
   _position: Vec2;
   _color: Color;
   _anchorPoint: Vec2;
