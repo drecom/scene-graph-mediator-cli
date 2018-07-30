@@ -71,7 +71,14 @@ export default class CocosCreator implements Exporter {
 
   public getResourceType(resourcePath: string): string {
     const ext = resourcePath.split('.').pop();
-    switch (ext) {
+    if (!ext) {
+      return ResourceType.NOT_RESOURCE;
+    }
+
+    // TODO: accept user defined types
+    switch (ext.toLowerCase()) {
+      case 'jpg':
+      case 'jpeg':
       case 'png':   return ResourceType.SPRITE_FRAME;
       case 'plist': return ResourceType.ATLAS;
       default:      return ResourceType.NOT_RESOURCE;
@@ -232,6 +239,11 @@ export default class CocosCreator implements Exporter {
           height: node._contentSize.height,
           x: (type === MetaTypes.NODE && !isCanvas) ? position.x : 0,
           y: (type === MetaTypes.NODE && !isCanvas) ? position.y : 0,
+          rotation: (node._rotationX === node._rotationY) ? node._rotationX : 0,
+          scale: {
+            x: node._scaleX,
+            y: node._scaleY
+          },
           anchor: {
             x: node._anchorPoint.x,
             y: node._anchorPoint.y
@@ -351,7 +363,8 @@ export default class CocosCreator implements Exporter {
         schemaNode.text = {
           text: (component as cc.Label)._N$string,
           style: {
-            size: (component as cc.Label)._fontSize
+            size: (component as cc.Label)._fontSize,
+            horizontalAlign: (component as cc.Label)._N$horizontalAlign
           }
         };
 

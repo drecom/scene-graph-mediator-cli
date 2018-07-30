@@ -61,6 +61,10 @@ export interface Node extends MetaBaseObject {
     _parent: MetaNodeIdObj | null;
     _children: MetaNodeIdObj[];
     _contentSize: Size;
+    _rotationX: number;
+    _rotationY: number;
+    _scaleX: number;
+    _scaleY: number;
     _position: Vec2;
     _color: Color;
     _anchorPoint: Vec2;
@@ -76,4 +80,5 @@ export interface Label extends Component {
     _fontSize: number;
     _N$string: string;
     _N$fontFamily: string;
+    _N$horizontalAlign: number;
 }
