@@ -309,23 +309,23 @@ export default class CocosCreator implements Exporter {
           break;
         }
 
-        let imageEntity = resourceMap.get(spriteFrameUuid.__uuid__);
-        if (!imageEntity) {
+        const spriteFrameEntity = resourceMap.get(spriteFrameUuid.__uuid__);
+        if (!spriteFrameEntity) {
           break;
         }
 
         const atlasUuid = (component as cc.Sprite)._atlas;
         // _spriteFrame may directs sprite that may contain atlas path
-        if (atlasUuid && this.getResourceType(imageEntity.path) === ResourceType.ATLAS) {
-          if (!imageEntity.submeta) {
+        if (atlasUuid && this.getResourceType(spriteFrameEntity.path) === ResourceType.ATLAS) {
+          if (!spriteFrameEntity.submeta) {
             break;
           }
 
-          const spriteSubmeta = (imageEntity.submeta.property as cc.MetaResourceSubMetaSprite);
+          const spriteSubmeta = spriteFrameEntity.submeta.property as cc.MetaResourceSubMetaSprite;
 
           // path to sprite
-          imageEntity = resourceMap.get(spriteSubmeta.rawTextureUuid);
-          if (!imageEntity) {
+          const rawTextureEntity = resourceMap.get(spriteSubmeta.rawTextureUuid);
+          if (!rawTextureEntity) {
             break;
           }
 
@@ -335,12 +335,13 @@ export default class CocosCreator implements Exporter {
           }
 
           schemaNode.sprite = {
-            url: imageEntity.path,
-            atlasUrl: atlasEntity.path
+            url: rawTextureEntity.path,
+            atlasUrl: atlasEntity.path,
+            frameName: spriteFrameEntity.submeta.key
           };
         } else {
           schemaNode.sprite = {
-            url: imageEntity.path
+            url: spriteFrameEntity.path
           };
         }
 
