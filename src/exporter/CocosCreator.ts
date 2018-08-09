@@ -16,11 +16,9 @@ const ResourceType: {
 
 type ResourceMapEntity = {
   path: string;
+  metaPath: string;
   type: string;
-  submeta?: {
-    key: string;
-    property: cc.MetaResourceSubMeta | undefined;
-  }
+  submetas?: { [key: string]: cc.MetaResource }
 };
 
 const MetaTypes: { [keys: string]: string } = Object.freeze({
@@ -179,6 +177,7 @@ export default class CocosCreator implements Exporter {
 
     const entity: ResourceMapEntity = {
       path: absPath,
+      metaPath: meta,
       type: resourceType
     };
 
@@ -188,12 +187,16 @@ export default class CocosCreator implements Exporter {
       case ResourceType.SPRITE_FRAME:
       case ResourceType.ATLAS: {
         const submetas = (json as cc.MetaResource).subMetas;
+        entity.submetas = submetas;
         const keys = Object.keys(submetas);
         for (let i = 0; i < keys.length; i++) {
-          const key      = keys[i];
-          const property = submetas[key];
-          entity.submeta = { key, property };
-          map.set(property.uuid, entity);
+          const submeta = submetas[keys[i]];
+          map.set(submeta.uuid, {
+            path: absPath,
+            metaPath: meta,
+            type: resourceType,
+            submetas: submeta.subMetas
+          });
         }
         break;
       }
@@ -328,28 +331,42 @@ export default class CocosCreator implements Exporter {
 
         const atlasUuid = (component as cc.Sprite)._atlas;
         // _spriteFrame may directs sprite that may contain atlas path
-        if (atlasUuid && this.getResourceType(spriteFrameEntity.path) === ResourceType.ATLAS) {
-          if (!spriteFrameEntity.submeta) {
-            break;
-          }
-
-          const spriteSubmeta = spriteFrameEntity.submeta.property as cc.MetaResourceSubMetaSprite;
-
-          // path to sprite
-          const rawTextureEntity = resourceMap.get(spriteSubmeta.rawTextureUuid);
-          if (!rawTextureEntity) {
-            break;
-          }
-
+        if (atlasUuid) {
           const atlasEntity = resourceMap.get(atlasUuid.__uuid__);
           if (!atlasEntity) {
+            break;
+          }
+
+          const atlasMetaContent = fs.readFileSync(atlasEntity.metaPath);
+          const atlasMetaJson = JSON.parse(atlasMetaContent.toString()) as cc.MetaResource;
+
+          let frameName: string | null = null;
+          let submeta: cc.MetaResource | null = null;
+
+          const keys = Object.keys(atlasMetaJson.subMetas);
+          for (let i = 0; i < keys.length; i++) {
+            const key = keys[i];
+            if (atlasMetaJson.subMetas[key].uuid === spriteFrameUuid.__uuid__) {
+              frameName = key;
+              submeta   = atlasMetaJson.subMetas[key];
+              break;
+            }
+          }
+
+          if (!frameName) {
+            break;
+          }
+
+          // path to sprite
+          const rawTextureEntity = resourceMap.get((submeta as cc.MetaResourceSubMetaSprite).rawTextureUuid);
+          if (!rawTextureEntity) {
             break;
           }
 
           schemaNode.sprite = {
             url: rawTextureEntity.path,
             atlasUrl: atlasEntity.path,
-            frameName: spriteFrameEntity.submeta.key
+            frameName: frameName
           };
         } else {
           schemaNode.sprite = {

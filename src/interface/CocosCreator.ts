@@ -8,14 +8,11 @@ export interface MetaNodeIdObj {
 export interface MetaResource {
   uuid: string;
   subMetas: {
-    [key: string]: MetaResourceSubMeta
+    [key: string]: MetaResource
   };
 }
 
-export interface MetaResourceSubMeta {
-  uuid: string;
-}
-export interface MetaResourceSubMetaSprite extends MetaResourceSubMeta {
+export interface MetaResourceSubMetaSprite extends MetaResource {
   ver: string;
   rawTextureUuid: string;
   trimType: string;
@@ -34,9 +31,6 @@ export interface MetaResourceSubMetaSprite extends MetaResourceSubMeta {
   borderLeft: number;
   borderRight: number;
   spriteType: string;
-  subMetas: {
-    [key: string]: MetaResourceSubMeta
-  };
 }
 
 export interface MetaBaseObject {
