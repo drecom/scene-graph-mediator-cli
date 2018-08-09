@@ -11,7 +11,23 @@ export default function cli(): void {
   try {
     args = parseArgs();
   } catch (e) {
-    return exit(ErrorCode.EnviromentVariableMissing);
+    console.log(`Usage:
+  set environment variable as below, then execute lib/index.js with node
+    required:
+      RUNTIME          runtime identifier, currently supports only 'cc'
+      ASSET_ROOT       root directory for assets
+      SCENE_FILE       exporting scene file
+
+    optional:
+      DEST             destination directory;       default './scene-graph'
+      ASSET_NAME_SPACE asset directory name;        default 'assets',
+      ASSET_DEST       asset destination directory; default \${DEST}/\${ASSET_NAME_SPACE}
+      GRAPH_FILE_NAME  scene graph file name;       default 'graph.json',
+
+  e.g;
+    RUNTIME=cc ASSET_ROOT=path/to/asset SCENE_FILE=path/to/scene node lib/index.js
+`);
+    return;
   }
 
   const Klass = factory.exporter(args.runtime);
