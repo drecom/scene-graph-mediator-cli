@@ -28,7 +28,7 @@ export default function cli(): void {
       GRAPH_FILE_NAME  scene graph file name;       default 'graph.json',
 
   e.g;
-    RUNTIME=cc ASSET_ROOT=path/to/asset SCENE_FILE=path/to/scene node lib/index.js
+    RUNTIME=cc ASSET_ROOT=path/to/asset SCENE_FILE=path/to/scene sgmed
 `);
     return;
   }
