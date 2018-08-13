@@ -6,6 +6,9 @@ import Args from '../interface/Args';
 import { Exporter } from '../interface/Exporter';
 import AssetPathVariant from '../interface/AssetPathVariant';
 
+/**
+ * Cocos Creator resource type
+ */
 const ResourceType: {
   [key: string]: string
 } = Object.freeze({
@@ -14,11 +17,14 @@ const ResourceType: {
   ATLAS: 'Atlas',
 });
 
+/**
+ * Tentative map of resources
+ */
 type ResourceMapEntity = {
   path: string;
   metaPath: string;
   type: string;
-  submetas?: { [key: string]: cc.MetaResource }
+  submetas?: { [key: string]: cc.MetaBase }
 };
 
 const MetaTypes: { [keys: string]: string } = Object.freeze({
@@ -29,6 +35,9 @@ const MetaTypes: { [keys: string]: string } = Object.freeze({
   LABEL:  'cc.Label'
 });
 
+/**
+ * CocosCreator scene exporter
+ */
 export default class CocosCreator implements Exporter {
 
   private args!: Args;
@@ -37,6 +46,9 @@ export default class CocosCreator implements Exporter {
     this.args = args;
   }
 
+  /**
+   * export scene graph with local resource and scene file
+   */
   public export(): SchemaJson {
     const sceneJson   = this.loadSceneFile();
     const resourceMap = this.createLocalResourceMap();
@@ -44,6 +56,9 @@ export default class CocosCreator implements Exporter {
     return this.createSceneGraph(sceneJson, resourceMap);
   }
 
+  /**
+   * Created supported resource map
+   */
   public createLocalResourceMap(
     basePath?: string,
     resourceMap?: Map<string, any>
@@ -67,6 +82,10 @@ export default class CocosCreator implements Exporter {
     return currentMap;
   }
 
+  /**
+   * Identify resource type by path and returns.<br />
+   * Note that only supported resources are identified as exporting resource.
+   */
   public getResourceType(resourcePath: string): string {
     const ext = resourcePath.split('.').pop();
     if (!ext) {
@@ -88,6 +107,9 @@ export default class CocosCreator implements Exporter {
     return JSON.parse(content);
   }
 
+  /**
+   * Create scene graph with scene file dto and collected resource map
+   */
   public createSceneGraph(json: any[], resourceMap: Map<string, any>): SchemaJson {
     const graph: SchemaJson = {
       scene: [],
@@ -110,6 +132,9 @@ export default class CocosCreator implements Exporter {
     return graph;
   }
 
+  /**
+   * Create AssetPathVariant for components those related to assets.
+   */
   public createAssetPathVariant(graph: SchemaJson, args: Args): AssetPathVariant[] {
     const variants: AssetPathVariant[] = [];
 
@@ -140,11 +165,11 @@ export default class CocosCreator implements Exporter {
   }
 
   public replaceResourceUri(graph: SchemaJson, variants: AssetPathVariant[]): void {
-    const scene = graph.scene;
+    const scene   = graph.scene;
+    const urlKeys = ['url', 'atlasUrl'];
     for (let i = 0; i < scene.length; i++) {
       const node = scene[i];
       if (node.sprite) {
-        const urlKeys = ['url', 'atlasUrl'];
         for (let j = 0; j < urlKeys.length; j++) {
           const urlKey = urlKeys[j];
           const variant = this.findVariantByLocalPath(variants, node.sprite[urlKey]);
@@ -166,7 +191,7 @@ export default class CocosCreator implements Exporter {
       return;
     }
 
-    let json: cc.MetaResource;
+    let json: cc.MetaBase;
     const content = fs.readFileSync(meta).toString();
 
     try {
@@ -183,10 +208,11 @@ export default class CocosCreator implements Exporter {
 
     map.set(json.uuid, entity);
 
+    // add submetas if exists
     switch (resourceType) {
       case ResourceType.SPRITE_FRAME:
       case ResourceType.ATLAS: {
-        const submetas = (json as cc.MetaResource).subMetas;
+        const submetas = (json as cc.MetaBase).subMetas;
         entity.submetas = submetas;
         const keys = Object.keys(submetas);
         for (let i = 0; i < keys.length; i++) {
@@ -203,10 +229,15 @@ export default class CocosCreator implements Exporter {
     }
   }
 
-  private appendNodes(json: cc.MetaBaseObject[], graph: SchemaJson): void {
+  /**
+   * Add node to SchemaJson.scene.<br />
+   * Convert transform to SchemaJson schema.
+   */
+  private appendNodes(json: cc.ComponentBase[], graph: SchemaJson): void {
     const canvas = this.findComponentByType(json, MetaTypes.CANVAS) as cc.Canvas;
 
-    const nodes = new Map<number, cc.MetaBaseObject>();
+    // collect nodes identified by id, scene file terats index as node id
+    const nodes = new Map<number, cc.ComponentBase>();
     for (let i = 0; i < json.length; i++) {
       const component = json[i];
       if (component.__type__ === MetaTypes.NODE) {
@@ -226,6 +257,7 @@ export default class CocosCreator implements Exporter {
       let isRoot   = false;
       const isCanvas = (i === canvas.node.__id__);
 
+      // CocosCreator's Scene has Canvas as root children
       if (node._parent) {
         parentId = node._parent.__id__;
         if (json[parentId].__type__ === MetaTypes.SCENE) {
@@ -257,6 +289,7 @@ export default class CocosCreator implements Exporter {
 
       schemaNode.transform.children = [];
 
+      // detect children and push
       const children = node._children;
       for (let j = 0; j < children.length; j++) {
         schemaNode.transform.children.push(children[j].__id__.toString());
@@ -281,6 +314,7 @@ export default class CocosCreator implements Exporter {
       y: node._anchorPoint.y
     };
 
+    // cocos's coordinate system has zero-zero coordinate on left bottom.
     graph.metadata.positiveCoord = {
       xRight: true,
       yDown:  false
@@ -288,7 +322,7 @@ export default class CocosCreator implements Exporter {
   }
 
   private appendComponents(
-    json: cc.MetaBaseObject[],
+    json: cc.ComponentBase[],
     graph: SchemaJson,
     resourceMap: Map<string, ResourceMapEntity>
   ): void {
@@ -337,11 +371,12 @@ export default class CocosCreator implements Exporter {
             break;
           }
 
+          // TODO: shouldn't read file
           const atlasMetaContent = fs.readFileSync(atlasEntity.metaPath);
-          const atlasMetaJson = JSON.parse(atlasMetaContent.toString()) as cc.MetaResource;
+          const atlasMetaJson = JSON.parse(atlasMetaContent.toString()) as cc.MetaBase;
 
           let frameName: string | null = null;
-          let submeta: cc.MetaResource | null = null;
+          let submeta: cc.MetaBase | null = null;
 
           const keys = Object.keys(atlasMetaJson.subMetas);
           for (let i = 0; i < keys.length; i++) {
@@ -358,20 +393,45 @@ export default class CocosCreator implements Exporter {
           }
 
           // path to sprite
-          const rawTextureEntity = resourceMap.get((submeta as cc.MetaResourceSubMetaSprite).rawTextureUuid);
+          const rawTextureEntity = resourceMap.get((submeta as cc.MetaSprite).rawTextureUuid);
           if (!rawTextureEntity) {
             break;
           }
 
           schemaNode.sprite = {
+            frameName,
             url: rawTextureEntity.path,
-            atlasUrl: atlasEntity.path,
-            frameName: frameName
+            atlasUrl: atlasEntity.path
           };
         } else {
+          // TODO: shouldn't read file
+          const spriteFrameMetaContent = fs.readFileSync(spriteFrameEntity.metaPath);
+          const spriteFrameMetaJson = JSON.parse(spriteFrameMetaContent.toString()) as cc.MetaBase;
+          const keys = Object.keys(spriteFrameMetaJson.subMetas);
+          if (keys.length === 0) {
+            break;
+          }
+
+          const key = keys[0];
+          const submeta = spriteFrameMetaJson.subMetas[key] as cc.MetaSprite;
           schemaNode.sprite = {
-            url: spriteFrameEntity.path
+            url: spriteFrameEntity.path,
+            frameName: key
           };
+
+          if (
+            submeta.borderTop    !== 0 ||
+            submeta.borderBottom !== 0 ||
+            submeta.borderLeft   !== 0 ||
+            submeta.borderRight  !== 0
+          ) {
+            schemaNode.sprite.slice = {
+              top:    submeta.borderTop,
+              bottom: submeta.borderBottom,
+              left:   submeta.borderLeft,
+              right:  submeta.borderRight
+            };
+          }
         }
 
         break;
@@ -395,7 +455,7 @@ export default class CocosCreator implements Exporter {
     }
   }
 
-  private findComponentByType(json: cc.MetaBaseObject[], type: string): cc.MetaBaseObject | null {
+  private findComponentByType(json: cc.ComponentBase[], type: string): cc.ComponentBase | null {
     for (let i = 0; i < json.length; i++) {
       const component = json[i];
       if (component.__type__ === type) {

@@ -12,11 +12,10 @@
     "url": ""
   },
   "scripts": {
-    "build": "tsc -p .",
-    "test:unit": "",
-    "test:lint": "tslint -p tsconfig.json --format stylish 'src/**/*.ts*'",
-    "workflow:test": "npm run test:unit && npm run test:lint",
-    "build:docs": "typedoc 'src/'"
+    "build:lib": "tsc -p .",
+    "build:docs": "typedoc 'src/'",
+    "lint": "tslint -p tsconfig.json --format stylish 'src/**/*.ts*'",
+    "workflow:build": "npm run build:lib && npm run build:docs"
   },
   "keywords": [],
   "author": "",

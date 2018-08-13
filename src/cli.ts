@@ -6,6 +6,9 @@ import * as factory from './modules/factory';
 
 import { ErrorCode, exit } from './error/';
 
+/**
+ * entry point for CLI
+ */
 export default function cli(): void {
   let args;
   try {

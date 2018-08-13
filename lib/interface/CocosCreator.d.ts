@@ -1,16 +1,26 @@
-export interface MetaUuidObj {
-    __uuid__: string;
-}
-export interface MetaNodeIdObj {
-    __id__: number;
-}
-export interface MetaResource {
+/**
+ * Cocos Creator scene file and meta file dto interface
+ */
+export declare const SpriteType: Readonly<{
+    SIMPLE: number;
+    SLICED: number;
+    TILED: number;
+    FILLED: number;
+    MESH: number;
+}>;
+/**
+ * Common meta file interface
+ */
+export interface MetaBase {
     uuid: string;
     subMetas: {
-        [key: string]: MetaResource;
+        [key: string]: MetaBase;
     };
 }
-export interface MetaResourceSubMetaSprite extends MetaResource {
+/**
+ * Sprite meta interface
+ */
+export interface MetaSprite extends MetaBase {
     ver: string;
     rawTextureUuid: string;
     trimType: string;
@@ -30,30 +40,48 @@ export interface MetaResourceSubMetaSprite extends MetaResource {
     borderRight: number;
     spriteType: string;
 }
-export interface MetaBaseObject {
+/**
+ * Base of scene component
+ */
+export interface ComponentBase {
     __type__: string;
 }
-export interface Size extends MetaBaseObject {
+/**
+ * Common uuid referer
+ */
+export interface ComponentUuidEntity {
+    __uuid__: string;
+}
+/**
+ * Common Node interface in scene
+ */
+export interface ComponentNodeIdEntity {
+    __id__: number;
+}
+export interface Size extends ComponentBase {
     width: number;
     height: number;
 }
-export interface Vec2 extends MetaBaseObject {
+export interface Vec2 extends ComponentBase {
     x: number;
     y: number;
 }
-export interface Color extends MetaBaseObject {
+export interface Color extends ComponentBase {
     r: number;
     g: number;
     b: number;
     a: number;
 }
-export interface Component extends MetaBaseObject {
-    node: MetaNodeIdObj;
+/**
+ * Common component interface that related to Node entity
+ */
+export interface Component extends ComponentBase {
+    node: ComponentNodeIdEntity;
 }
-export interface Node extends MetaBaseObject {
+export interface Node extends ComponentBase {
     _name: string;
-    _parent: MetaNodeIdObj | null;
-    _children: MetaNodeIdObj[];
+    _parent: ComponentNodeIdEntity | null;
+    _children: ComponentNodeIdEntity[];
     _contentSize: Size;
     _rotationX: number;
     _rotationY: number;
@@ -67,8 +95,9 @@ export interface Canvas extends Component {
     _designResolution: Size;
 }
 export interface Sprite extends Component {
-    _spriteFrame: MetaUuidObj;
-    _atlas: MetaUuidObj | null;
+    _spriteFrame: ComponentUuidEntity;
+    _atlas: ComponentUuidEntity | null;
+    _type: number;
 }
 export interface Label extends Component {
     _fontSize: number;
