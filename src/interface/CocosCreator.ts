@@ -2,6 +2,15 @@
  * Cocos Creator scene file and meta file dto interface
  */
 
+export const MetaTypes: { [keys: string]: string } = Object.freeze({
+   SCENE:  'cc.Scene',
+   CANVAS: 'cc.Canvas',
+   NODE:   'cc.Node',
+   SPRITE: 'cc.Sprite',
+   LABEL:  'cc.Label'
+ });
+
+
 // TODO: expose or float this definition, scene-graph-mediator-rt importer may refer this
 export const SpriteType = Object.freeze({
   SIMPLE: 0,
@@ -76,6 +85,12 @@ export interface Vec2 extends ComponentBase {
   y: number;
 }
 
+export interface Vec3 extends ComponentBase {
+  x: number;
+  y: number;
+  z: number;
+}
+
 export interface Color extends ComponentBase {
   r: number;
   g: number;
@@ -99,6 +114,19 @@ export interface Node extends ComponentBase {
   _rotationY: number;
   _scaleX: number;
   _scaleY: number;
+  _position: Vec2;
+  _color: Color;
+  _anchorPoint: Vec2;
+}
+
+export interface NodeV2 extends ComponentBase {
+  _name: string;
+  _parent: ComponentNodeIdEntity | null;
+  _children: ComponentNodeIdEntity[];
+  _contentSize: Size;
+  _rotationX: number;
+  _rotationY: number;
+  _scale: Vec3;
   _position: Vec2;
   _color: Color;
   _anchorPoint: Vec2;

@@ -27,20 +27,12 @@ type ResourceMapEntity = {
   submetas?: { [key: string]: cc.MetaBase }
 };
 
-const MetaTypes: { [keys: string]: string } = Object.freeze({
-  SCENE:  'cc.Scene',
-  CANVAS: 'cc.Canvas',
-  NODE:   'cc.Node',
-  SPRITE: 'cc.Sprite',
-  LABEL:  'cc.Label'
-});
-
 /**
  * CocosCreator scene exporter
  */
 export default class CocosCreator implements Exporter {
 
-  private args!: Args;
+  protected args!: Args;
 
   constructor(args: Args) {
     this.args = args;
@@ -181,7 +173,7 @@ export default class CocosCreator implements Exporter {
     }
   }
 
-  private addResourceMapEntity(
+  protected addResourceMapEntity(
     absPath: string,
     resourceType: string,
     map: Map<string, ResourceMapEntity>
@@ -233,14 +225,14 @@ export default class CocosCreator implements Exporter {
    * Add node to SchemaJson.scene.<br />
    * Convert transform to SchemaJson schema.
    */
-  private appendNodes(json: cc.ComponentBase[], graph: SchemaJson): void {
-    const canvas = this.findComponentByType(json, MetaTypes.CANVAS) as cc.Canvas;
+  protected appendNodes(json: cc.ComponentBase[], graph: SchemaJson): void {
+    const canvas = this.findComponentByType(json, cc.MetaTypes.CANVAS) as cc.Canvas;
 
     // collect nodes identified by id, scene file terats index as node id
     const nodes = new Map<number, cc.ComponentBase>();
     for (let i = 0; i < json.length; i++) {
       const component = json[i];
-      if (component.__type__ === MetaTypes.NODE) {
+      if (component.__type__ === cc.MetaTypes.NODE) {
         nodes.set(i, component);
       }
     }
@@ -249,7 +241,7 @@ export default class CocosCreator implements Exporter {
       const node = value as cc.Node;
       const position = node._position;
       const type = node.__type__;
-      if (type === MetaTypes.NODE && !position) {
+      if (type === cc.MetaTypes.NODE && !position) {
         return;
       }
 
@@ -260,7 +252,7 @@ export default class CocosCreator implements Exporter {
       // CocosCreator's Scene has Canvas as root children
       if (node._parent) {
         parentId = node._parent.__id__;
-        if (json[parentId].__type__ === MetaTypes.SCENE) {
+        if (json[parentId].__type__ === cc.MetaTypes.SCENE) {
           isRoot = true;
         }
       }
@@ -272,8 +264,8 @@ export default class CocosCreator implements Exporter {
         transform: {
           width:  node._contentSize.width,
           height: node._contentSize.height,
-          x: (type === MetaTypes.NODE && !isCanvas) ? position.x : 0,
-          y: (type === MetaTypes.NODE && !isCanvas) ? position.y : 0,
+          x: (type === cc.MetaTypes.NODE && !isCanvas) ? position.x : 0,
+          y: (type === cc.MetaTypes.NODE && !isCanvas) ? position.y : 0,
           rotation: (node._rotationX === node._rotationY) ? node._rotationX : 0,
           scale: {
             x: node._scaleX,
@@ -299,8 +291,8 @@ export default class CocosCreator implements Exporter {
     });
   }
 
-  private appendMetaData(json: any[], graph: SchemaJson) {
-    const component = this.findComponentByType(json, MetaTypes.CANVAS) as cc.Canvas;
+  protected appendMetaData(json: any[], graph: SchemaJson) {
+    const component = this.findComponentByType(json, cc.MetaTypes.CANVAS) as cc.Canvas;
     if (!component) {
       return;
     }
@@ -321,7 +313,7 @@ export default class CocosCreator implements Exporter {
     };
   }
 
-  private appendComponents(
+  protected appendComponents(
     json: cc.ComponentBase[],
     graph: SchemaJson,
     resourceMap: Map<string, ResourceMapEntity>
@@ -345,14 +337,14 @@ export default class CocosCreator implements Exporter {
     }
   }
 
-  private appendComponentByType(
+  protected appendComponentByType(
     schemaNode: Node,
     ccNode: cc.Node,
     component: cc.Component,
     resourceMap: Map<string, ResourceMapEntity>
   ): void {
     switch (component.__type__) {
-      case MetaTypes.SPRITE: {
+      case cc.MetaTypes.SPRITE: {
         const spriteFrameUuid = (component as cc.Sprite)._spriteFrame;
         if (!spriteFrameUuid) {
           break;
@@ -436,7 +428,7 @@ export default class CocosCreator implements Exporter {
 
         break;
       }
-      case MetaTypes.LABEL: {
+      case cc.MetaTypes.LABEL: {
         schemaNode.text = {
           text: (component as cc.Label)._N$string,
           style: {
@@ -455,7 +447,7 @@ export default class CocosCreator implements Exporter {
     }
   }
 
-  private findComponentByType(json: cc.ComponentBase[], type: string): cc.ComponentBase | null {
+  protected findComponentByType(json: cc.ComponentBase[], type: string): cc.ComponentBase | null {
     for (let i = 0; i < json.length; i++) {
       const component = json[i];
       if (component.__type__ === type) {
@@ -466,7 +458,7 @@ export default class CocosCreator implements Exporter {
     return null;
   }
 
-  private findSchemaNodeById(graph: SchemaJson, id: string): Node | null {
+  protected findSchemaNodeById(graph: SchemaJson, id: string): Node | null {
     const scene = graph.scene;
     for (let i = 0; i < scene.length; i++) {
       const element = scene[i];
@@ -478,7 +470,7 @@ export default class CocosCreator implements Exporter {
     return null;
   }
 
-  private findVariantByLocalPath(
+  protected findVariantByLocalPath(
     variants: AssetPathVariant[],
     localPath: string
   ): AssetPathVariant | null {

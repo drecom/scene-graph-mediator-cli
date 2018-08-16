@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AssetPathVariant | pixi-scene-graph</title>
+	<title>NodeV2 | pixi-scene-graph</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="assetpathvariant.html">AssetPathVariant</a>
+					<a href="nodev2.html">NodeV2</a>
 				</li>
 			</ul>
-			<h1>Interface AssetPathVariant</h1>
+			<h1>Interface NodeV2</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AssetPathVariant</span>
+						<a href="componentbase.html" class="tsd-signature-type">ComponentBase</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">NodeV2</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -79,9 +84,17 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="assetpathvariant.html#destpath" class="tsd-kind-icon">dest<wbr>Path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="assetpathvariant.html#localpath" class="tsd-kind-icon">local<wbr>Path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="assetpathvariant.html#uri" class="tsd-kind-icon">uri</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="nodev2.html#__type__" class="tsd-kind-icon">__type__</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_anchorpoint" class="tsd-kind-icon">_anchor<wbr>Point</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_children" class="tsd-kind-icon">_children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_color" class="tsd-kind-icon">_color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_contentsize" class="tsd-kind-icon">_content<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_name" class="tsd-kind-icon">_name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_parent" class="tsd-kind-icon">_parent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_position" class="tsd-kind-icon">_position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_rotationx" class="tsd-kind-icon">_rotationX</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_rotationy" class="tsd-kind-icon">_rotationY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="nodev2.html#_scale" class="tsd-kind-icon">_scale</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,33 +102,114 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="destpath" class="tsd-anchor"></a>
-					<h3>dest<wbr>Path</h3>
-					<div class="tsd-signature tsd-kind-icon">dest<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="__type__" class="tsd-anchor"></a>
+					<h3>__type__</h3>
+					<div class="tsd-signature tsd-kind-icon">__type__<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="componentbase.html">ComponentBase</a>.<a href="componentbase.html#__type__">__type__</a></p>
 						<ul>
-							<li>Defined in interface/AssetPathVariant.ts:3</li>
+							<li>Defined in interface/CocosCreator.ts:61</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="localpath" class="tsd-anchor"></a>
-					<h3>local<wbr>Path</h3>
-					<div class="tsd-signature tsd-kind-icon">local<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="_anchorpoint" class="tsd-anchor"></a>
+					<h3>_anchor<wbr>Point</h3>
+					<div class="tsd-signature tsd-kind-icon">_anchor<wbr>Point<span class="tsd-signature-symbol">:</span> <a href="vec2.html" class="tsd-signature-type">Vec2</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in interface/AssetPathVariant.ts:2</li>
+							<li>Defined in interface/CocosCreator.ts:132</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="uri" class="tsd-anchor"></a>
-					<h3>uri</h3>
-					<div class="tsd-signature tsd-kind-icon">uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="_children" class="tsd-anchor"></a>
+					<h3>_children</h3>
+					<div class="tsd-signature tsd-kind-icon">_children<span class="tsd-signature-symbol">:</span> <a href="componentnodeidentity.html" class="tsd-signature-type">ComponentNodeIdEntity</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in interface/AssetPathVariant.ts:4</li>
+							<li>Defined in interface/CocosCreator.ts:125</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_color" class="tsd-anchor"></a>
+					<h3>_color</h3>
+					<div class="tsd-signature tsd-kind-icon">_color<span class="tsd-signature-symbol">:</span> <a href="color.html" class="tsd-signature-type">Color</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:131</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_contentsize" class="tsd-anchor"></a>
+					<h3>_content<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">_content<wbr>Size<span class="tsd-signature-symbol">:</span> <a href="size.html" class="tsd-signature-type">Size</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:126</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_name" class="tsd-anchor"></a>
+					<h3>_name</h3>
+					<div class="tsd-signature tsd-kind-icon">_name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:123</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_parent" class="tsd-anchor"></a>
+					<h3>_parent</h3>
+					<div class="tsd-signature tsd-kind-icon">_parent<span class="tsd-signature-symbol">:</span> <a href="componentnodeidentity.html" class="tsd-signature-type">ComponentNodeIdEntity</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:124</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_position" class="tsd-anchor"></a>
+					<h3>_position</h3>
+					<div class="tsd-signature tsd-kind-icon">_position<span class="tsd-signature-symbol">:</span> <a href="vec2.html" class="tsd-signature-type">Vec2</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:130</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_rotationx" class="tsd-anchor"></a>
+					<h3>_rotationX</h3>
+					<div class="tsd-signature tsd-kind-icon">_rotationX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:127</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_rotationy" class="tsd-anchor"></a>
+					<h3>_rotationY</h3>
+					<div class="tsd-signature tsd-kind-icon">_rotationY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:128</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="_scale" class="tsd-anchor"></a>
+					<h3>_scale</h3>
+					<div class="tsd-signature tsd-kind-icon">_scale<span class="tsd-signature-symbol">:</span> <a href="vec3.html" class="tsd-signature-type">Vec3</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interface/CocosCreator.ts:129</li>
 						</ul>
 					</aside>
 				</section>
@@ -140,24 +234,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="args.html" class="tsd-kind-icon">Args</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="assetpathvariant.html" class="tsd-kind-icon">Asset<wbr>Path<wbr>Variant</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="assetpathvariant.html#destpath" class="tsd-kind-icon">dest<wbr>Path</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="assetpathvariant.html#localpath" class="tsd-kind-icon">local<wbr>Path</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="assetpathvariant.html#uri" class="tsd-kind-icon">uri</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="canvas.html" class="tsd-kind-icon">Canvas</a>
 					</li>
@@ -200,9 +279,48 @@
 					<li class=" tsd-kind-interface">
 						<a href="node.html" class="tsd-kind-icon">Node</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="nodev2.html" class="tsd-kind-icon">Node<wbr>V2</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="nodev2.html#__type__" class="tsd-kind-icon">__type__</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_anchorpoint" class="tsd-kind-icon">_anchor<wbr>Point</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_children" class="tsd-kind-icon">_children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_color" class="tsd-kind-icon">_color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_contentsize" class="tsd-kind-icon">_content<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_name" class="tsd-kind-icon">_name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_parent" class="tsd-kind-icon">_parent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_position" class="tsd-kind-icon">_position</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_rotationx" class="tsd-kind-icon">_rotationX</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_rotationy" class="tsd-kind-icon">_rotationY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="nodev2.html#_scale" class="tsd-kind-icon">_scale</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="size.html" class="tsd-kind-icon">Size</a>
 					</li>

@@ -69,6 +69,7 @@
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class"><a href="classes/cocoscreator.html" class="tsd-kind-icon">Cocos<wbr>Creator</a></li>
+								<li class="tsd-kind-class"><a href="classes/cocoscreatorv2.html" class="tsd-kind-icon">Cocos<wbr>Creator<wbr>V2</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -90,9 +91,11 @@
 								<li class="tsd-kind-interface"><a href="interfaces/metabase.html" class="tsd-kind-icon">Meta<wbr>Base</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/metasprite.html" class="tsd-kind-icon">Meta<wbr>Sprite</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/node.html" class="tsd-kind-icon">Node</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/nodev2.html" class="tsd-kind-icon">Node<wbr>V2</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/size.html" class="tsd-kind-icon">Size</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/sprite.html" class="tsd-kind-icon">Sprite</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/vec2.html" class="tsd-kind-icon">Vec2</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/vec3.html" class="tsd-kind-icon">Vec3</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-not-exported">
@@ -105,7 +108,7 @@
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable"><a href="globals.html#errorcode" class="tsd-kind-icon">Error<wbr>Code</a></li>
-								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#metatypes" class="tsd-kind-icon">Meta<wbr>Types</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#metatypes" class="tsd-kind-icon">Meta<wbr>Types</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#resourcetype" class="tsd-kind-icon">Resource<wbr>Type</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#spritetype" class="tsd-kind-icon">Sprite<wbr>Type</a></li>
 							</ul>
@@ -178,15 +181,20 @@
 						</ul>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="metatypes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> Meta<wbr>Types</h3>
 					<div class="tsd-signature tsd-kind-icon">Meta<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;Object.freeze({SCENE:  &#x27;cc.Scene&#x27;,CANVAS: &#x27;cc.Canvas&#x27;,NODE:   &#x27;cc.Node&#x27;,SPRITE: &#x27;cc.Sprite&#x27;,LABEL:  &#x27;cc.Label&#x27;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in exporter/CocosCreator.ts:30</li>
+							<li>Defined in interface/CocosCreator.ts:5</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Cocos Creator scene file and meta file dto interface</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -225,14 +233,9 @@
 					<div class="tsd-signature tsd-kind-icon">Sprite<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;Object.freeze({SIMPLE: 0,SLICED: 1,TILED:  2,FILLED: 3,MESH:   4})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in interface/CocosCreator.ts:6</li>
+							<li>Defined in interface/CocosCreator.ts:15</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Cocos Creator scene file and meta file dto interface</p>
-						</div>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -323,7 +326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in modules/factory.ts:14</li>
+									<li>Defined in modules/factory.ts:20</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -370,6 +373,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
 						<a href="classes/cocoscreator.html" class="tsd-kind-icon">Cocos<wbr>Creator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/cocoscreatorv2.html" class="tsd-kind-icon">Cocos<wbr>Creator<wbr>V2</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/args.html" class="tsd-kind-icon">Args</a>
@@ -420,6 +426,9 @@
 						<a href="interfaces/node.html" class="tsd-kind-icon">Node</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/nodev2.html" class="tsd-kind-icon">Node<wbr>V2</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/size.html" class="tsd-kind-icon">Size</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -428,13 +437,16 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/vec2.html" class="tsd-kind-icon">Vec2</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/vec3.html" class="tsd-kind-icon">Vec3</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-is-not-exported">
 						<a href="globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#errorcode" class="tsd-kind-icon">Error<wbr>Code</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#metatypes" class="tsd-kind-icon">Meta<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">

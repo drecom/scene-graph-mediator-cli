@@ -1,6 +1,9 @@
 /**
  * Cocos Creator scene file and meta file dto interface
  */
+export declare const MetaTypes: {
+    [keys: string]: string;
+};
 export declare const SpriteType: Readonly<{
     SIMPLE: number;
     SLICED: number;
@@ -66,6 +69,11 @@ export interface Vec2 extends ComponentBase {
     x: number;
     y: number;
 }
+export interface Vec3 extends ComponentBase {
+    x: number;
+    y: number;
+    z: number;
+}
 export interface Color extends ComponentBase {
     r: number;
     g: number;
@@ -87,6 +95,18 @@ export interface Node extends ComponentBase {
     _rotationY: number;
     _scaleX: number;
     _scaleY: number;
+    _position: Vec2;
+    _color: Color;
+    _anchorPoint: Vec2;
+}
+export interface NodeV2 extends ComponentBase {
+    _name: string;
+    _parent: ComponentNodeIdEntity | null;
+    _children: ComponentNodeIdEntity[];
+    _contentSize: Size;
+    _rotationX: number;
+    _rotationY: number;
+    _scale: Vec3;
     _position: Vec2;
     _color: Color;
     _anchorPoint: Vec2;
