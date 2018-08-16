@@ -3,13 +3,12 @@
  */
 
 export const MetaTypes: { [keys: string]: string } = Object.freeze({
-   SCENE:  'cc.Scene',
-   CANVAS: 'cc.Canvas',
-   NODE:   'cc.Node',
-   SPRITE: 'cc.Sprite',
-   LABEL:  'cc.Label'
- });
-
+  SCENE:  'cc.Scene',
+  CANVAS: 'cc.Canvas',
+  NODE:   'cc.Node',
+  SPRITE: 'cc.Sprite',
+  LABEL:  'cc.Label'
+});
 
 // TODO: expose or float this definition, scene-graph-mediator-rt importer may refer this
 export const SpriteType = Object.freeze({
