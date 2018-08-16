@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": ""https://github.com/drecom/scene-graph-mediator-cli"
   },
   "scripts": {
     "build:lib": "tsc -p .",
