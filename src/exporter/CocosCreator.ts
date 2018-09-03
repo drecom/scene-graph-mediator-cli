@@ -355,6 +355,8 @@ export default class CocosCreator implements Exporter {
           break;
         }
 
+        let submeta: cc.MetaSprite | null = null;
+
         const atlasUuid = (component as cc.Sprite)._atlas;
         // _spriteFrame may directs sprite that may contain atlas path
         if (atlasUuid) {
@@ -368,14 +370,13 @@ export default class CocosCreator implements Exporter {
           const atlasMetaJson = JSON.parse(atlasMetaContent.toString()) as cc.MetaBase;
 
           let frameName: string | null = null;
-          let submeta: cc.MetaBase | null = null;
 
           const keys = Object.keys(atlasMetaJson.subMetas);
           for (let i = 0; i < keys.length; i++) {
             const key = keys[i];
             if (atlasMetaJson.subMetas[key].uuid === spriteFrameUuid.__uuid__) {
               frameName = key;
-              submeta   = atlasMetaJson.subMetas[key];
+              submeta   = atlasMetaJson.subMetas[key] as cc.MetaSprite;
               break;
             }
           }
@@ -405,25 +406,27 @@ export default class CocosCreator implements Exporter {
           }
 
           const key = keys[0];
-          const submeta = spriteFrameMetaJson.subMetas[key] as cc.MetaSprite;
+          submeta = spriteFrameMetaJson.subMetas[key] as cc.MetaSprite;
           schemaNode.sprite = {
             url: spriteFrameEntity.path,
             frameName: key
           };
+        }
 
-          if (
+        if (
+          submeta && (
             submeta.borderTop    !== 0 ||
             submeta.borderBottom !== 0 ||
             submeta.borderLeft   !== 0 ||
             submeta.borderRight  !== 0
-          ) {
-            schemaNode.sprite.slice = {
-              top:    submeta.borderTop,
-              bottom: submeta.borderBottom,
-              left:   submeta.borderLeft,
-              right:  submeta.borderRight
-            };
-          }
+          )
+        ) {
+          schemaNode.sprite.slice = {
+            top:    submeta.borderTop,
+            bottom: submeta.borderBottom,
+            left:   submeta.borderLeft,
+            right:  submeta.borderRight
+          };
         }
 
         break;
