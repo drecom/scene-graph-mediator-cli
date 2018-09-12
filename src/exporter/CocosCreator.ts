@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { SchemaJson, Node } from '@drecom/scene-graph-schema';
+import { SchemaJson, Node, Transform } from '@drecom/scene-graph-schema';
 import * as cc from '../interface/CocosCreator';
 import Args from '../interface/Args';
 import { Exporter } from '../interface/Exporter';
@@ -239,9 +239,7 @@ export default class CocosCreator implements Exporter {
 
     nodes.forEach((value, i) => {
       const node = value as cc.Node;
-      const position = node._position;
-      const type = node.__type__;
-      if (type === cc.MetaTypes.NODE && !position) {
+      if (node.__type__ === cc.MetaTypes.NODE && !node._position) {
         return;
       }
 
@@ -257,25 +255,31 @@ export default class CocosCreator implements Exporter {
         }
       }
 
+      const transform = this.createDefaultTransform(node);
+      if (node.__type__ !== cc.MetaTypes.NODE || isCanvas) {
+        transform.x = 0;
+        transform.y = 0;
+      }
+      if (node._rotationX !== node._rotationY) {
+        transform.rotation = 0;
+      }
+      if (!isRoot && parentId) {
+        transform.parent = parentId.toString();
+      }
+
       const schemaNode: Node = {
         id: i.toString(),
         name: node._name,
-        constructorName: type,
-        transform: {
-          width:  node._contentSize.width,
-          height: node._contentSize.height,
-          x: (type === cc.MetaTypes.NODE && !isCanvas) ? position.x : 0,
-          y: (type === cc.MetaTypes.NODE && !isCanvas) ? position.y : 0,
-          rotation: (node._rotationX === node._rotationY) ? node._rotationX : 0,
-          scale: {
-            x: node._scaleX,
-            y: node._scaleY
-          },
-          anchor: {
-            x: node._anchorPoint.x,
-            y: node._anchorPoint.y
-          },
-          parent: (!isRoot && parentId) ? parentId.toString() : undefined
+        constructorName: node.__type__,
+        transform: transform,
+        renderer: {
+          color: {
+            r: node._color.r,
+            g: node._color.g,
+            b: node._color.b,
+            // cocos's bug? _color.a is not used
+            a: node._opacity
+          }
         }
       };
 
@@ -289,6 +293,26 @@ export default class CocosCreator implements Exporter {
 
       graph.scene.push(schemaNode);
     });
+  }
+
+  protected createDefaultTransform(component: cc.ComponentBase): Transform {
+    const node = component as cc.Node;
+
+    return {
+      width:  node._contentSize.width,
+      height: node._contentSize.height,
+      x: node._position.x,
+      y: node._position.y,
+      rotation: node._rotationX,
+      scale: {
+        x: node._scaleX,
+        y: node._scaleY
+      },
+      anchor: {
+        x: node._anchorPoint.x,
+        y: node._anchorPoint.y
+      }
+    };
   }
 
   protected appendMetaData(json: any[], graph: SchemaJson) {
@@ -319,27 +343,22 @@ export default class CocosCreator implements Exporter {
     resourceMap: Map<string, ResourceMapEntity>
   ): void {
     for (let i = 0; i < json.length; i++) {
-      const component = json[i];
-      if (!(component as cc.Component).node) {
+      const component = json[i] as cc.Component;
+      if (!component.node) {
         continue;
       }
 
-      const id = (component as cc.Component).node.__id__;
-
-      const schemaNode = this.findSchemaNodeById(graph, id.toString());
+      const schemaNode = this.findSchemaNodeById(graph, component.node.__id__.toString());
       if (!schemaNode) {
         continue;
       }
 
-      const node = json[id] as cc.Node;
-
-      this.appendComponentByType(schemaNode, node, component as cc.Component, resourceMap);
+      this.appendComponentByType(schemaNode, component, resourceMap);
     }
   }
 
   protected appendComponentByType(
     schemaNode: Node,
-    ccNode: cc.Node,
     component: cc.Component,
     resourceMap: Map<string, ResourceMapEntity>
   ): void {
@@ -440,8 +459,13 @@ export default class CocosCreator implements Exporter {
           }
         };
 
-        const color = ccNode._color;
-        const colorStr = `#${color.r.toString(16)}${color.g.toString(16)}${color.b.toString(16)}`;
+        // TODO: alpha
+        let colorStr = '#FFFFFF';
+        if (schemaNode.renderer && schemaNode.renderer.color) {
+          // Label uses node color
+          const color = schemaNode.renderer.color;
+          colorStr = `#${color.r.toString(16)}${color.g.toString(16)}${color.b.toString(16)}`;
+        }
         schemaNode.text.style.color = colorStr;
 
         break;
