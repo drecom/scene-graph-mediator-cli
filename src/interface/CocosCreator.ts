@@ -114,6 +114,7 @@ export interface Node extends ComponentBase {
   _scaleX: number;
   _scaleY: number;
   _position: Vec2;
+  _opacity: number;
   _color: Color;
   _anchorPoint: Vec2;
 }
@@ -127,6 +128,7 @@ export interface NodeV2 extends ComponentBase {
   _rotationY: number;
   _scale: Vec3;
   _position: Vec2;
+  _opacity: number;
   _color: Color;
   _anchorPoint: Vec2;
 }

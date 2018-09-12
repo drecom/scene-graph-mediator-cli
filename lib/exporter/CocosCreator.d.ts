@@ -1,4 +1,4 @@
-import { SchemaJson, Node } from '@drecom/scene-graph-schema';
+import { SchemaJson, Node, Transform } from '@drecom/scene-graph-schema';
 import * as cc from '../interface/CocosCreator';
 import Args from '../interface/Args';
 import { Exporter } from '../interface/Exporter';
@@ -49,9 +49,10 @@ export default class CocosCreator implements Exporter {
      * Convert transform to SchemaJson schema.
      */
     protected appendNodes(json: cc.ComponentBase[], graph: SchemaJson): void;
+    protected createDefaultTransform(component: cc.ComponentBase): Transform;
     protected appendMetaData(json: any[], graph: SchemaJson): void;
     protected appendComponents(json: cc.ComponentBase[], graph: SchemaJson, resourceMap: Map<string, ResourceMapEntity>): void;
-    protected appendComponentByType(schemaNode: Node, ccNode: cc.Node, component: cc.Component, resourceMap: Map<string, ResourceMapEntity>): void;
+    protected appendComponentByType(schemaNode: Node, component: cc.Component, resourceMap: Map<string, ResourceMapEntity>): void;
     protected findComponentByType(json: cc.ComponentBase[], type: string): cc.ComponentBase | null;
     protected findSchemaNodeById(graph: SchemaJson, id: string): Node | null;
     protected findVariantByLocalPath(variants: AssetPathVariant[], localPath: string): AssetPathVariant | null;
