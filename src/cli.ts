@@ -1,73 +1,56 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+import Args from './interface/Args';
+import ExportManager from './exporter/ExportManager';
 import parseArgs from './modules/parseArgs';
-import * as factory from './modules/factory';
-
-import { ErrorCode, exit } from './error/';
+import { CliHelptext } from './constants';
 
 /**
- * entry point for CLI
+ * entry point for export CLI
  */
 export default function cli(): void {
-  let args;
+  let args: Args;
   try {
     args = parseArgs();
   } catch (e) {
-    console.log(`Usage:
-  set environment variable as below, then execute lib/index.js with node
-    required:
-      RUNTIME          runtime identifier, currently supports only 'cc'
-      ASSET_ROOT       root directory for assets
-      SCENE_FILE       exporting scene file
-
-    optional:
-      DEST             destination directory;       default './scene-graph'
-      ASSET_NAME_SPACE asset directory name;        default 'assets',
-      ASSET_DEST       asset destination directory; default \${DEST}/\${ASSET_NAME_SPACE}
-      GRAPH_FILE_NAME  scene graph file name;       default 'graph.json',
-
-  e.g;
-    RUNTIME=cc ASSET_ROOT=path/to/asset SCENE_FILE=path/to/scene sgmed
-`);
+    console.log(CliHelptext);
     return;
   }
 
-  const Klass = factory.exporter(args.runtime);
-  if (!Klass) {
-    return exit(ErrorCode.RuntimeNotSupported);
-  }
-
-  const exporter = new Klass(args);
-  const graph    = exporter.export();
-  const variants = exporter.createAssetPathVariant(graph, args);
-  exporter.replaceResourceUri(graph, variants);
+  /**
+   * Instantiate exporter implement
+   */
+  const manager = new ExportManager();
+  manager.loadPlugins(args.plugins)
 
   /**
-   * init dest dir
+   * Execute export
    */
-  if (!fs.existsSync(args.destDir)) {
-    fs.mkdirSync(args.destDir);
-  }
-  if (!fs.existsSync(args.assetDestDir)) {
-    fs.mkdirSync(args.assetDestDir);
-  }
+  const sceneGraphs = manager.exportScene(args.runtime, args.sceneFiles, args.assetRoot);
 
-  /**
-   * copy assets
-   */
-  for (let i = 0; i < variants.length; i++) {
-    const variant = variants[i];
-    const destDir = path.dirname(variant.destPath);
-    if (!fs.existsSync(destDir)) {
-      fs.mkdirSync(destDir);
-    }
-    fs.copyFileSync(variant.localPath, variant.destPath);
-  }
+  // scene graph file manages assets
+  const exportExportMap = manager.exportAsset(sceneGraphs, args.runtime, args.assetRoot, args.assetDestDir, args.assetNameSpace);
 
-  /**
-   * write scene graph
-   */
-  const dest = path.resolve(args.destDir, args.graphFileName);
-  fs.writeFileSync(dest, JSON.stringify(graph, null, 2));
+  // file system control
+  fs.mkdir(args.assetDestDir, () => {
+    // write scene graph file
+    sceneGraphs.forEach((sceneGraph, sceneFilePath) => {
+      const destFileName = path.basename(sceneFilePath) + '.json';
+      const dest = path.join(args.assetDestDir, destFileName);
+      // if (debug) {
+      fs.writeFile(dest, JSON.stringify(sceneGraph, null, 2), () => {});
+      // } else {
+      //   fs.writeFile(dest, JSON.stringify(sceneGraph), () => {});
+      // }
+    });
+
+    // copy assets
+    exportExportMap.forEach((entity) => {
+      const targetDir = path.dirname(entity.localDestPath);
+      fs.mkdir(targetDir, () => {
+        fs.copyFile(entity.localSrcPath, entity.localDestPath, () => {});
+      });
+    });
+  });
 }

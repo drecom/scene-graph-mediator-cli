@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CocosCreator | pixi-scene-graph</title>
+	<title>CocosCreator | scene-graph-mediator-cli</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">pixi-scene-graph</a>
+					<a href="../index.html" class="title">scene-graph-mediator-cli</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>CocosCreator scene exporter</p>
+						<p>CocosCreator scene exporter
+						CocosCreator scene exporter</p>
 					</div>
 				</div>
 			</section>
@@ -76,18 +77,14 @@
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="target">CocosCreator</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="cocoscreatorv2.html" class="tsd-signature-type">CocosCreatorV2</a>
-							</li>
-						</ul>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/exporter.html" class="tsd-signature-type">Exporter</a></li>
+					<li><a href="../interfaces/assetexporter.html" class="tsd-signature-type">AssetExporter</a></li>
+					<li><a href="../interfaces/sceneexporter.html" class="tsd-signature-type">SceneExporter</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -95,111 +92,32 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="cocoscreator.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-private-protected">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#args" class="tsd-kind-icon">args</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#addresourcemapentity" class="tsd-kind-icon">add<wbr>Resource<wbr>Map<wbr>Entity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#appendcomponentbytype" class="tsd-kind-icon">append<wbr>Component<wbr>ByType</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#appendcomponents" class="tsd-kind-icon">append<wbr>Components</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#appendmetadata" class="tsd-kind-icon">append<wbr>Meta<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#appendnodes" class="tsd-kind-icon">append<wbr>Nodes</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#createassetpathvariant" class="tsd-kind-icon">create<wbr>Asset<wbr>Path<wbr>Variant</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#createdefaulttransform" class="tsd-kind-icon">create<wbr>Default<wbr>Transform</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#createlocalresourcemap" class="tsd-kind-icon">create<wbr>Local<wbr>Resource<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#createexportmap" class="tsd-kind-icon">create<wbr>Export<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="cocoscreator.html#createexportmapentity" class="tsd-kind-icon">create<wbr>Export<wbr>Map<wbr>Entity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#createlocalresourcemap" class="tsd-kind-icon">create<wbr>Local<wbr>Resource<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#createresourcemapentities" class="tsd-kind-icon">create<wbr>Resource<wbr>Map<wbr>Entities</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#createscenegraph" class="tsd-kind-icon">create<wbr>Scene<wbr>Graph</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#export" class="tsd-kind-icon">export</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#createscenegraphschemas" class="tsd-kind-icon">create<wbr>Scene<wbr>Graph<wbr>Schemas</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#findcomponentbytype" class="tsd-kind-icon">find<wbr>Component<wbr>ByType</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#findschemanodebyid" class="tsd-kind-icon">find<wbr>Schema<wbr>Node<wbr>ById</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="cocoscreator.html#findvariantbylocalpath" class="tsd-kind-icon">find<wbr>Variant<wbr>ByLocal<wbr>Path</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#getresourcetype" class="tsd-kind-icon">get<wbr>Resource<wbr>Type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#getidentifier" class="tsd-kind-icon">get<wbr>Identifier</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#loadscenefile" class="tsd-kind-icon">load<wbr>Scene<wbr>File</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#replaceresourceuri" class="tsd-kind-icon">replace<wbr>Resource<wbr>Uri</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#pluginpostprocess" class="tsd-kind-icon">plugin<wbr>Post<wbr>Process</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cocoscreator.html#replacepaths" class="tsd-kind-icon">replace<wbr>Paths</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Cocos<wbr>Creator<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><a href="../interfaces/args.html" class="tsd-signature-type">Args</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="cocoscreator.html" class="tsd-signature-type">CocosCreator</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in exporter/CocosCreator.ts:35</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>args: <a href="../interfaces/args.html" class="tsd-signature-type">Args</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="cocoscreator.html" class="tsd-signature-type">CocosCreator</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="args" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> args</h3>
-					<div class="tsd-signature tsd-kind-icon">args<span class="tsd-signature-symbol">:</span> <a href="../interfaces/args.html" class="tsd-signature-type">Args</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in exporter/CocosCreator.ts:35</li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-					<a name="addresourcemapentity" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> add<wbr>Resource<wbr>Map<wbr>Entity</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Resource<wbr>Map<wbr>Entity<span class="tsd-signature-symbol">(</span>absPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, resourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, map<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#resourcemapentity" class="tsd-signature-type">ResourceMapEntity</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in exporter/CocosCreator.ts:176</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>absPath: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>resourceType: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>map: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#resourcemapentity" class="tsd-signature-type">ResourceMapEntity</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="appendcomponentbytype" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> append<wbr>Component<wbr>ByType</h3>
@@ -210,7 +128,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:360</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:329</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -239,7 +157,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:340</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:309</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -268,7 +186,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:318</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:287</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -294,7 +212,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:228</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:197</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -316,38 +234,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="createassetpathvariant" class="tsd-anchor"></a>
-					<h3>create<wbr>Asset<wbr>Path<wbr>Variant</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Asset<wbr>Path<wbr>Variant<span class="tsd-signature-symbol">(</span>graph<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchemaJson</span>, args<span class="tsd-signature-symbol">: </span><a href="../interfaces/args.html" class="tsd-signature-type">Args</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/exporter.html">Exporter</a>.<a href="../interfaces/exporter.html#createassetpathvariant">createAssetPathVariant</a></p>
-								<ul>
-									<li>Defined in exporter/CocosCreator.ts:130</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create AssetPathVariant for components those related to assets.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>graph: <span class="tsd-signature-type">SchemaJson</span></h5>
-								</li>
-								<li>
-									<h5>args: <a href="../interfaces/args.html" class="tsd-signature-type">Args</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="createdefaulttransform" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> create<wbr>Default<wbr>Transform</h3>
@@ -358,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:298</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:267</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -372,17 +258,84 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="createlocalresourcemap" class="tsd-anchor"></a>
-					<h3>create<wbr>Local<wbr>Resource<wbr>Map</h3>
+					<a name="createexportmap" class="tsd-anchor"></a>
+					<h3>create<wbr>Export<wbr>Map</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Local<wbr>Resource<wbr>Map<span class="tsd-signature-symbol">(</span>basePath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, resourceMap<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Export<wbr>Map<span class="tsd-signature-symbol">(</span>sceneGraphMap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SchemaJson</span><span class="tsd-signature-symbol">&gt;</span>, assetRoot<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, destDir<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, urlNameSpace<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, plugins<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/assetexporterplugin.html" class="tsd-signature-type">AssetExporterPlugin</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#assetexportmapentity" class="tsd-signature-type">AssetExportMapEntity</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/exporter.html">Exporter</a>.<a href="../interfaces/exporter.html#createlocalresourcemap">createLocalResourceMap</a></p>
+								<p>Implementation of <a href="../interfaces/assetexporter.html">AssetExporter</a>.<a href="../interfaces/assetexporter.html#createexportmap">createExportMap</a></p>
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:54</li>
+									<li>Defined in exporter/asset/CocosCreator.ts:17</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sceneGraphMap: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SchemaJson</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>assetRoot: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>destDir: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>urlNameSpace: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> plugins: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/assetexporterplugin.html" class="tsd-signature-type">AssetExporterPlugin</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#assetexportmapentity" class="tsd-signature-type">AssetExportMapEntity</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="createexportmapentity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Export<wbr>Map<wbr>Entity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Export<wbr>Map<wbr>Entity<span class="tsd-signature-symbol">(</span>basePath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, assetRoot<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, destDir<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, urlNameSpace<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#assetexportmapentity" class="tsd-signature-type">AssetExportMapEntity</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in exporter/asset/CocosCreator.ts:89</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>basePath: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>assetRoot: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>destDir: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> urlNameSpace: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../globals.html#assetexportmapentity" class="tsd-signature-type">AssetExportMapEntity</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="createlocalresourcemap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> create<wbr>Local<wbr>Resource<wbr>Map</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Local<wbr>Resource<wbr>Map<span class="tsd-signature-symbol">(</span>assetFileMap<span class="tsd-signature-symbol">: </span><a href="assetfilemap.html" class="tsd-signature-type">AssetFileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#resourcemapentity" class="tsd-signature-type">ResourceMapEntity</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in exporter/scene/CocosCreator.ts:121</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -393,13 +346,33 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> basePath: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> resourceMap: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>assetFileMap: <a href="assetfilemap.html" class="tsd-signature-type">AssetFileMap</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#resourcemapentity" class="tsd-signature-type">ResourceMapEntity</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="createresourcemapentities" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> create<wbr>Resource<wbr>Map<wbr>Entities</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Resource<wbr>Map<wbr>Entities<span class="tsd-signature-symbol">(</span>absPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#resourcemapentity" class="tsd-signature-type">ResourceMapEntity</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in exporter/scene/CocosCreator.ts:132</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>absPath: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../globals.html#resourcemapentity" class="tsd-signature-type">ResourceMapEntity</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -407,14 +380,14 @@
 					<a name="createscenegraph" class="tsd-anchor"></a>
 					<h3>create<wbr>Scene<wbr>Graph</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Scene<wbr>Graph<span class="tsd-signature-symbol">(</span>json<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, resourceMap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchemaJson</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Scene<wbr>Graph<span class="tsd-signature-symbol">(</span>json<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchemaJson</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/exporter.html">Exporter</a>.<a href="../interfaces/exporter.html#createscenegraph">createSceneGraph</a></p>
+								<p>Implementation of <a href="../interfaces/sceneexporter.html">SceneExporter</a>.<a href="../interfaces/sceneexporter.html#createscenegraph">createSceneGraph</a></p>
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:105</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:78</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,34 +400,43 @@
 								<li>
 									<h5>json: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
-								<li>
-									<h5>resourceMap: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">SchemaJson</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="export" class="tsd-anchor"></a>
-					<h3>export</h3>
+					<a name="createscenegraphschemas" class="tsd-anchor"></a>
+					<h3>create<wbr>Scene<wbr>Graph<wbr>Schemas</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">export<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchemaJson</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Scene<wbr>Graph<wbr>Schemas<span class="tsd-signature-symbol">(</span>sceneFiles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, assetRoot<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, plugins<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SceneExporterPlugin</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SchemaJson</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/exporter.html">Exporter</a>.<a href="../interfaces/exporter.html#export">export</a></p>
+								<p>Implementation of <a href="../interfaces/sceneexporter.html">SceneExporter</a>.<a href="../interfaces/sceneexporter.html#createscenegraphschemas">createSceneGraphSchemas</a></p>
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:44</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:43</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>export scene graph with local resource and scene file</p>
+									<p>export scene graph</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">SchemaJson</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sceneFiles: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>assetRoot: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> plugins: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SceneExporterPlugin</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SchemaJson</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -468,7 +450,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:477</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:446</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -497,7 +479,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:488</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:457</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -516,61 +498,20 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-					<a name="findvariantbylocalpath" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> find<wbr>Variant<wbr>ByLocal<wbr>Path</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>Variant<wbr>ByLocal<wbr>Path<span class="tsd-signature-symbol">(</span>variants<span class="tsd-signature-symbol">: </span><a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a><span class="tsd-signature-symbol">[]</span>, localPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in exporter/CocosCreator.ts:500</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>variants: <a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>localPath: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">null</span>
-							</h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getresourcetype" class="tsd-anchor"></a>
-					<h3>get<wbr>Resource<wbr>Type</h3>
+					<a name="getidentifier" class="tsd-anchor"></a>
+					<h3>get<wbr>Identifier</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<wbr>Type<span class="tsd-signature-symbol">(</span>resourcePath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Identifier<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/exporter.html">Exporter</a>.<a href="../interfaces/exporter.html#getresourcetype">getResourceType</a></p>
+								<p>Implementation of <a href="../interfaces/sceneexporter.html">SceneExporter</a>.<a href="../interfaces/sceneexporter.html#getidentifier">getIdentifier</a></p>
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:81</li>
+									<li>Defined in exporter/asset/CocosCreator.ts:13</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Identify resource type by path and returns.<br />
-									Note that only supported resources are identified as exporting resource.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>resourcePath: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
@@ -579,32 +520,37 @@
 					<a name="loadscenefile" class="tsd-anchor"></a>
 					<h3>load<wbr>Scene<wbr>File</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">load<wbr>Scene<wbr>File<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Scene<wbr>File<span class="tsd-signature-symbol">(</span>sceneFile<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/exporter.html">Exporter</a>.<a href="../interfaces/exporter.html#loadscenefile">loadSceneFile</a></p>
+								<p>Implementation of <a href="../interfaces/sceneexporter.html">SceneExporter</a>.<a href="../interfaces/sceneexporter.html#loadscenefile">loadSceneFile</a></p>
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:97</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:70</li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sceneFile: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="replaceresourceuri" class="tsd-anchor"></a>
-					<h3>replace<wbr>Resource<wbr>Uri</h3>
+					<a name="pluginpostprocess" class="tsd-anchor"></a>
+					<h3>plugin<wbr>Post<wbr>Process</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">replace<wbr>Resource<wbr>Uri<span class="tsd-signature-symbol">(</span>graph<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchemaJson</span>, variants<span class="tsd-signature-symbol">: </span><a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">plugin<wbr>Post<wbr>Process<span class="tsd-signature-symbol">(</span>graph<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchemaJson</span>, sceneJson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, assetFileMap<span class="tsd-signature-symbol">: </span><a href="assetfilemap.html" class="tsd-signature-type">AssetFileMap</a>, plugins<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SceneExporterPlugin</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/exporter.html">Exporter</a>.<a href="../interfaces/exporter.html#replaceresourceuri">replaceResourceUri</a></p>
 								<ul>
-									<li>Defined in exporter/CocosCreator.ts:159</li>
+									<li>Defined in exporter/scene/CocosCreator.ts:103</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -613,7 +559,43 @@
 									<h5>graph: <span class="tsd-signature-type">SchemaJson</span></h5>
 								</li>
 								<li>
-									<h5>variants: <a href="../interfaces/assetpathvariant.html" class="tsd-signature-type">AssetPathVariant</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>sceneJson: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>assetFileMap: <a href="assetfilemap.html" class="tsd-signature-type">AssetFileMap</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> plugins: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SceneExporterPlugin</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="replacepaths" class="tsd-anchor"></a>
+					<h3>replace<wbr>Paths</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">replace<wbr>Paths<span class="tsd-signature-symbol">(</span>sceneGraphMap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SchemaJson</span><span class="tsd-signature-symbol">&gt;</span>, exportMap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#assetexportmapentity" class="tsd-signature-type">AssetExportMapEntity</a><span class="tsd-signature-symbol">&gt;</span>, plugins<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/assetexporterplugin.html" class="tsd-signature-type">AssetExporterPlugin</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/assetexporter.html">AssetExporter</a>.<a href="../interfaces/assetexporter.html#replacepaths">replacePaths</a></p>
+								<ul>
+									<li>Defined in exporter/asset/CocosCreator.ts:55</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sceneGraphMap: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SchemaJson</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>exportMap: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../globals.html#assetexportmapentity" class="tsd-signature-type">AssetExportMapEntity</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> plugins: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/assetexporterplugin.html" class="tsd-signature-type">AssetExporterPlugin</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -632,20 +614,17 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="assetfileentity.html" class="tsd-kind-icon">Asset<wbr>File<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="assetfilemap.html" class="tsd-kind-icon">Asset<wbr>File<wbr>Map</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
 						<a href="cocoscreator.html" class="tsd-kind-icon">Cocos<wbr>Creator</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="cocoscreator.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="cocoscreator.html#args" class="tsd-kind-icon">args</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="cocoscreator.html#addresourcemapentity" class="tsd-kind-icon">add<wbr>Resource<wbr>Map<wbr>Entity</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="cocoscreator.html#appendcomponentbytype" class="tsd-kind-icon">append<wbr>Component<wbr>ByType</a>
 							</li>
@@ -658,20 +637,26 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="cocoscreator.html#appendnodes" class="tsd-kind-icon">append<wbr>Nodes</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="cocoscreator.html#createassetpathvariant" class="tsd-kind-icon">create<wbr>Asset<wbr>Path<wbr>Variant</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="cocoscreator.html#createdefaulttransform" class="tsd-kind-icon">create<wbr>Default<wbr>Transform</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="cocoscreator.html#createexportmap" class="tsd-kind-icon">create<wbr>Export<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="cocoscreator.html#createexportmapentity" class="tsd-kind-icon">create<wbr>Export<wbr>Map<wbr>Entity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="cocoscreator.html#createlocalresourcemap" class="tsd-kind-icon">create<wbr>Local<wbr>Resource<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="cocoscreator.html#createresourcemapentities" class="tsd-kind-icon">create<wbr>Resource<wbr>Map<wbr>Entities</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="cocoscreator.html#createscenegraph" class="tsd-kind-icon">create<wbr>Scene<wbr>Graph</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="cocoscreator.html#export" class="tsd-kind-icon">export</a>
+								<a href="cocoscreator.html#createscenegraphschemas" class="tsd-kind-icon">create<wbr>Scene<wbr>Graph<wbr>Schemas</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="cocoscreator.html#findcomponentbytype" class="tsd-kind-icon">find<wbr>Component<wbr>ByType</a>
@@ -679,17 +664,17 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="cocoscreator.html#findschemanodebyid" class="tsd-kind-icon">find<wbr>Schema<wbr>Node<wbr>ById</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="cocoscreator.html#findvariantbylocalpath" class="tsd-kind-icon">find<wbr>Variant<wbr>ByLocal<wbr>Path</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="cocoscreator.html#getresourcetype" class="tsd-kind-icon">get<wbr>Resource<wbr>Type</a>
+								<a href="cocoscreator.html#getidentifier" class="tsd-kind-icon">get<wbr>Identifier</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="cocoscreator.html#loadscenefile" class="tsd-kind-icon">load<wbr>Scene<wbr>File</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="cocoscreator.html#replaceresourceuri" class="tsd-kind-icon">replace<wbr>Resource<wbr>Uri</a>
+								<a href="cocoscreator.html#pluginpostprocess" class="tsd-kind-icon">plugin<wbr>Post<wbr>Process</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="cocoscreator.html#replacepaths" class="tsd-kind-icon">replace<wbr>Paths</a>
 							</li>
 						</ul>
 					</li>
@@ -698,11 +683,23 @@
 					<li class=" tsd-kind-class">
 						<a href="cocoscreatorv2.html" class="tsd-kind-icon">Cocos<wbr>Creator<wbr>V2</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="exportmanager.html" class="tsd-kind-icon">Export<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="resourcemap.html" class="tsd-kind-icon">Resource<wbr>Map</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/args.html" class="tsd-kind-icon">Args</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/assetpathvariant.html" class="tsd-kind-icon">Asset<wbr>Path<wbr>Variant</a>
+						<a href="../interfaces/assetexporter.html" class="tsd-kind-icon">Asset<wbr>Exporter</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/assetexporterconstructor.html" class="tsd-kind-icon">Asset<wbr>Exporter<wbr>Constructor</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/assetexporterplugin.html" class="tsd-kind-icon">Asset<wbr>Exporter<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/canvas.html" class="tsd-kind-icon">Canvas</a>
@@ -723,10 +720,7 @@
 						<a href="../interfaces/componentuuidentity.html" class="tsd-kind-icon">Component<wbr>Uuid<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/exporter.html" class="tsd-kind-icon">Exporter</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/exporterconstructor.html" class="tsd-kind-icon">Exporter<wbr>Constructor</a>
+						<a href="../interfaces/exporterplugin.html" class="tsd-kind-icon">Exporter<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/importer.html" class="tsd-kind-icon">Importer</a>
@@ -750,6 +744,12 @@
 						<a href="../interfaces/nodev2.html" class="tsd-kind-icon">Node<wbr>V2</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/sceneexporter.html" class="tsd-kind-icon">Scene<wbr>Exporter</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/sceneexporterconstructor.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Constructor</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/size.html" class="tsd-kind-icon">Size</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -761,11 +761,14 @@
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/vec3.html" class="tsd-kind-icon">Vec3</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#assetexportmapentity" class="tsd-kind-icon">Asset<wbr>Export<wbr>Map<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#errorcode" class="tsd-kind-icon">Error<wbr>Code</a>
+						<a href="../globals.html#clihelptext" class="tsd-kind-icon">Cli<wbr>Helptext</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#metatypes" class="tsd-kind-icon">Meta<wbr>Types</a>
@@ -774,19 +777,13 @@
 						<a href="../globals.html#resourcetype" class="tsd-kind-icon">Resource<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="../globals.html#runtimeidentifiers" class="tsd-kind-icon">Runtime<wbr>Identifiers</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="../globals.html#spritetype" class="tsd-kind-icon">Sprite<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#cli" class="tsd-kind-icon">cli</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#exit" class="tsd-kind-icon">exit</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#exporter" class="tsd-kind-icon">exporter</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#importer" class="tsd-kind-icon">importer</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#parseargs" class="tsd-kind-icon">parse<wbr>Args</a>

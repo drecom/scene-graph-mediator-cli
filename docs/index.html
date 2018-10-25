@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>pixi-scene-graph</title>
+	<title>scene-graph-mediator-cli</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">pixi-scene-graph</a>
+					<a href="index.html" class="title">scene-graph-mediator-cli</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,7 +54,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> pixi-scene-graph</h1>
+			<h1> scene-graph-mediator-cli</h1>
 		</div>
 	</div>
 </header>
@@ -97,16 +97,34 @@ Usage:
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
+						<a href="classes/assetfileentity.html" class="tsd-kind-icon">Asset<wbr>File<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/assetfilemap.html" class="tsd-kind-icon">Asset<wbr>File<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/cocoscreator.html" class="tsd-kind-icon">Cocos<wbr>Creator</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/cocoscreatorv2.html" class="tsd-kind-icon">Cocos<wbr>Creator<wbr>V2</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/exportmanager.html" class="tsd-kind-icon">Export<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/resourcemap.html" class="tsd-kind-icon">Resource<wbr>Map</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/args.html" class="tsd-kind-icon">Args</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/assetpathvariant.html" class="tsd-kind-icon">Asset<wbr>Path<wbr>Variant</a>
+						<a href="interfaces/assetexporter.html" class="tsd-kind-icon">Asset<wbr>Exporter</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/assetexporterconstructor.html" class="tsd-kind-icon">Asset<wbr>Exporter<wbr>Constructor</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/assetexporterplugin.html" class="tsd-kind-icon">Asset<wbr>Exporter<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/canvas.html" class="tsd-kind-icon">Canvas</a>
@@ -127,10 +145,7 @@ Usage:
 						<a href="interfaces/componentuuidentity.html" class="tsd-kind-icon">Component<wbr>Uuid<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/exporter.html" class="tsd-kind-icon">Exporter</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/exporterconstructor.html" class="tsd-kind-icon">Exporter<wbr>Constructor</a>
+						<a href="interfaces/exporterplugin.html" class="tsd-kind-icon">Exporter<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/importer.html" class="tsd-kind-icon">Importer</a>
@@ -154,6 +169,12 @@ Usage:
 						<a href="interfaces/nodev2.html" class="tsd-kind-icon">Node<wbr>V2</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/sceneexporter.html" class="tsd-kind-icon">Scene<wbr>Exporter</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/sceneexporterconstructor.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Constructor</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/size.html" class="tsd-kind-icon">Size</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -165,11 +186,14 @@ Usage:
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/vec3.html" class="tsd-kind-icon">Vec3</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#assetexportmapentity" class="tsd-kind-icon">Asset<wbr>Export<wbr>Map<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#errorcode" class="tsd-kind-icon">Error<wbr>Code</a>
+						<a href="globals.html#clihelptext" class="tsd-kind-icon">Cli<wbr>Helptext</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#metatypes" class="tsd-kind-icon">Meta<wbr>Types</a>
@@ -178,19 +202,13 @@ Usage:
 						<a href="globals.html#resourcetype" class="tsd-kind-icon">Resource<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#runtimeidentifiers" class="tsd-kind-icon">Runtime<wbr>Identifiers</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#spritetype" class="tsd-kind-icon">Sprite<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#cli" class="tsd-kind-icon">cli</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#exit" class="tsd-kind-icon">exit</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#exporter" class="tsd-kind-icon">exporter</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#importer" class="tsd-kind-icon">importer</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#parseargs" class="tsd-kind-icon">parse<wbr>Args</a>

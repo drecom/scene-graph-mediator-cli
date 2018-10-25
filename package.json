@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "bin": {
-    "sgmed": "lib/index.js"
+    "sgmed": "bin/cli.js"
   },
   "license": "MIT",
   "repository": {
