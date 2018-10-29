@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Bundles each export processes and manages running them.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -107,9 +114,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/ExportManager.ts:69</li>
+									<li>Defined in exporter/ExportManager.ts:90</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create map for exporting assets</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -142,9 +154,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/ExportManager.ts:53</li>
+									<li>Defined in exporter/ExportManager.ts:71</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Exports scene graphs for given scene file paths</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -171,9 +188,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/ExportManager.ts:39</li>
+									<li>Defined in exporter/ExportManager.ts:54</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dynamically loads user defined plugin by absolute module path</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -194,9 +216,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/ExportManager.ts:27</li>
+									<li>Defined in exporter/ExportManager.ts:39</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dyamically loads asset exporter implements</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -220,9 +247,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in exporter/ExportManager.ts:15</li>
+									<li>Defined in exporter/ExportManager.ts:24</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dyamically loads scene exporter implements</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -245,26 +277,31 @@
 					<div class="tsd-signature tsd-kind-icon">plugins<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in exporter/ExportManager.ts:10</li>
+							<li>Defined in exporter/ExportManager.ts:16</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Plugins placeholder</p>
+						</div>
+					</div>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 						<a name="plugins.assets" class="tsd-anchor"></a>
 						<h3>assets</h3>
 						<div class="tsd-signature tsd-kind-icon">assets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/assetexporterplugin.html" class="tsd-signature-type">AssetExporterPlugin</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map&lt;string, AssetExporterPlugin&gt;()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in exporter/ExportManager.ts:11</li>
+								<li>Defined in exporter/ExportManager.ts:17</li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 						<a name="plugins.scenes" class="tsd-anchor"></a>
 						<h3>scenes</h3>
-						<div class="tsd-signature tsd-kind-icon">scenes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/exporterplugin.html" class="tsd-signature-type">ExporterPlugin</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map&lt;string, SceneExporterPlugin&gt;()</span></div>
+						<div class="tsd-signature tsd-kind-icon">scenes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/sceneexporterplugin.html" class="tsd-signature-type">SceneExporterPlugin</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map&lt;string, SceneExporterPlugin&gt;()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in exporter/ExportManager.ts:12</li>
+								<li>Defined in exporter/ExportManager.ts:18</li>
 							</ul>
 						</aside>
 					</section>
@@ -320,9 +357,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="resourcemap.html" class="tsd-kind-icon">Resource<wbr>Map</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/args.html" class="tsd-kind-icon">Args</a>
 					</li>
@@ -354,9 +388,6 @@
 						<a href="../interfaces/componentuuidentity.html" class="tsd-kind-icon">Component<wbr>Uuid<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/exporterplugin.html" class="tsd-kind-icon">Exporter<wbr>Plugin</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/importer.html" class="tsd-kind-icon">Importer</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -384,6 +415,9 @@
 						<a href="../interfaces/sceneexporterconstructor.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Constructor</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/sceneexporterplugin.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/size.html" class="tsd-kind-icon">Size</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -398,7 +432,7 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#assetexportmapentity" class="tsd-kind-icon">Asset<wbr>Export<wbr>Map<wbr>Entity</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
 						<a href="../globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-variable">

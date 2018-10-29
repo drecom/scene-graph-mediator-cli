@@ -10,10 +10,16 @@ import AssetExportMapEntity from '../../interface/AssetExportMapEntity';
  */
 export default class CocosCreator implements AssetExporter {
 
+  /**
+   * Returns runtime identifier string.
+   */
   public getIdentifier(): string {
     return 'cocoscreator';
   }
 
+  /**
+   * Create asset export map.
+   */
   public createExportMap(
     sceneGraphMap: Map<string, SchemaJson>,
     assetRoot: string,
@@ -52,6 +58,9 @@ export default class CocosCreator implements AssetExporter {
     return exportMap;
   }
 
+  /**
+   * Replace paths in scene graph from absolute local path to relative path/url.
+   */
   public replacePaths(
     sceneGraphMap: Map<string, SchemaJson>,
     exportMap: Map<string, AssetExportMapEntity>,
@@ -86,6 +95,9 @@ export default class CocosCreator implements AssetExporter {
     });
   }
 
+  /**
+   * Create asset export map entity.
+   */
   private createExportMapEntity(basePath: string, assetRoot: string, destDir: string, urlNameSpace: string = ''): AssetExportMapEntity {
     const relativePath = basePath.replace(RegExp(`\^${assetRoot}`), '');
 

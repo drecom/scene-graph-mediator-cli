@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Handles file based asset list</p>
+						<p>AssetFileMap handles file path based asset list.</p>
 					</div>
 				</div>
 			</section>
@@ -120,9 +120,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in asset/AssetFileMap.ts:11</li>
+									<li>Defined in asset/AssetFileMap.ts:17</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Constructor throws exception when given path is invalid as absolute path.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -142,9 +147,14 @@
 					<div class="tsd-signature tsd-kind-icon">asset<wbr>Root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in asset/AssetFileMap.ts:10</li>
+							<li>Defined in asset/AssetFileMap.ts:13</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Asset root path.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="entities" class="tsd-anchor"></a>
@@ -152,9 +162,14 @@
 					<div class="tsd-signature tsd-kind-icon">entities<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="assetfileentity.html" class="tsd-signature-type">AssetFileEntity</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in asset/AssetFileMap.ts:11</li>
+							<li>Defined in asset/AssetFileMap.ts:17</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Map of AssetFileEntity related to absolute path.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -169,9 +184,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in asset/AssetFileMap.ts:21</li>
+									<li>Defined in asset/AssetFileMap.ts:33</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clear AssetFileEntity map.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -186,9 +206,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in asset/AssetFileMap.ts:29</li>
+									<li>Defined in asset/AssetFileMap.ts:47</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Wrapper for entities.forEach() to keep it readonly.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -230,9 +255,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in asset/AssetFileMap.ts:25</li>
+									<li>Defined in asset/AssetFileMap.ts:40</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Wrapper for entities.get() to keep it readonly.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -256,9 +286,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in asset/AssetFileMap.ts:33</li>
+									<li>Defined in asset/AssetFileMap.ts:54</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Scan given path and set entities.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -323,9 +358,6 @@
 					<li class=" tsd-kind-class">
 						<a href="exportmanager.html" class="tsd-kind-icon">Export<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="resourcemap.html" class="tsd-kind-icon">Resource<wbr>Map</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/args.html" class="tsd-kind-icon">Args</a>
 					</li>
@@ -357,9 +389,6 @@
 						<a href="../interfaces/componentuuidentity.html" class="tsd-kind-icon">Component<wbr>Uuid<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/exporterplugin.html" class="tsd-kind-icon">Exporter<wbr>Plugin</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/importer.html" class="tsd-kind-icon">Importer</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -387,6 +416,9 @@
 						<a href="../interfaces/sceneexporterconstructor.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Constructor</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/sceneexporterplugin.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/size.html" class="tsd-kind-icon">Size</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -401,7 +433,7 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#assetexportmapentity" class="tsd-kind-icon">Asset<wbr>Export<wbr>Map<wbr>Entity</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
 						<a href="../globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-variable">

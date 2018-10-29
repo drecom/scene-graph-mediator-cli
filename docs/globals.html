@@ -73,7 +73,6 @@
 								<li class="tsd-kind-class"><a href="classes/cocoscreator.html" class="tsd-kind-icon">Cocos<wbr>Creator</a></li>
 								<li class="tsd-kind-class"><a href="classes/cocoscreatorv2.html" class="tsd-kind-icon">Cocos<wbr>Creator<wbr>V2</a></li>
 								<li class="tsd-kind-class"><a href="classes/exportmanager.html" class="tsd-kind-icon">Export<wbr>Manager</a></li>
-								<li class="tsd-kind-class"><a href="classes/resourcemap.html" class="tsd-kind-icon">Resource<wbr>Map</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -89,7 +88,6 @@
 								<li class="tsd-kind-interface"><a href="interfaces/componentbase.html" class="tsd-kind-icon">Component<wbr>Base</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/componentnodeidentity.html" class="tsd-kind-icon">Component<wbr>Node<wbr>IdEntity</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/componentuuidentity.html" class="tsd-kind-icon">Component<wbr>Uuid<wbr>Entity</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/exporterplugin.html" class="tsd-kind-icon">Exporter<wbr>Plugin</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/importer.html" class="tsd-kind-icon">Importer</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/importerconstructor.html" class="tsd-kind-icon">Importer<wbr>Constructor</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/label.html" class="tsd-kind-icon">Label</a></li>
@@ -99,6 +97,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/nodev2.html" class="tsd-kind-icon">Node<wbr>V2</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/sceneexporter.html" class="tsd-kind-icon">Scene<wbr>Exporter</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/sceneexporterconstructor.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Constructor</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/sceneexporterplugin.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Plugin</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/size.html" class="tsd-kind-icon">Size</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/sprite.html" class="tsd-kind-icon">Sprite</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/vec2.html" class="tsd-kind-icon">Vec2</a></li>
@@ -109,7 +108,7 @@
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias"><a href="globals.html#assetexportmapentity" class="tsd-kind-icon">Asset<wbr>Export<wbr>Map<wbr>Entity</a></li>
-								<li class="tsd-kind-type-alias"><a href="globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a></li>
+								<li class="tsd-kind-type-alias tsd-is-not-exported"><a href="globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -140,9 +139,14 @@
 					<div class="tsd-signature tsd-kind-icon">Asset<wbr>Export<wbr>Map<wbr>Entity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in interface/AssetExportMapEntity.ts:1</li>
+							<li>Defined in interface/AssetExportMapEntity.ts:4</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Interface for asset exporter plugin</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -158,16 +162,20 @@
 						</ul>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-not-exported">
 					<a name="resourcemapentity" class="tsd-anchor"></a>
 					<h3>Resource<wbr>Map<wbr>Entity</h3>
 					<div class="tsd-signature tsd-kind-icon">Resource<wbr>Map<wbr>Entity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in exporter/ResourceMap.ts:1</li>
-							<li>Defined in exporter/scene/CocosCreator.ts:23</li>
+							<li>Defined in exporter/scene/CocosCreator.ts:26</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Entity data structure of resource map.</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -198,9 +206,14 @@
 					<div class="tsd-signature tsd-kind-icon">Cli<wbr>Helptext<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Usage:set environment variable as below, then execute lib/index.js with noderequired:RUNTIME          runtime identifier, currently supports only &#x27;cc&#x27;ASSET_ROOT       root directory for assetsSCENE_FILE       exporting scene fileoptional:DEST             destination directory;        default &#x27;./scene-graph&#x27;ASSET_NAME_SPACE asset directory name;         default &#x27;assets&#x27;ASSET_DEST       asset destination directory;  default ${DEST}/${ASSET_NAME_SPACE}GRAPH_FILE_NAME  scene graph file name;        default &#x27;graph.json&#x27;PLUGINS          space separated plugin names; default &#x27;&#x27;,e.g;RUNTIME&#x3D;cc ASSET_ROOT&#x3D;path/to/asset SCENE_FILE&#x3D;path/to/scene PLUGINS&#x3D;&#x27;plugin1 plugin2&#x27; sgmed"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;Usage:set environment variable as below, then execute lib/index.js with noderequired:RUNTIME          runtime identifier, currently supports only &#x27;cc&#x27;ASSET_ROOT       root directory for assetsSCENE_FILE       exporting scene fileoptional:DEST             destination directory;        default &#x27;./scene-graph&#x27;ASSET_NAME_SPACE asset directory name;         default &#x27;assets&#x27;ASSET_DEST       asset destination directory;  default \${DEST}/\${ASSET_NAME_SPACE}GRAPH_FILE_NAME  scene graph file name;        default &#x27;graph.json&#x27;PLUGINS          space separated plugin names; default &#x27;&#x27;,e.g;RUNTIME&#x3D;cc ASSET_ROOT&#x3D;path/to/asset SCENE_FILE&#x3D;path/to/scene PLUGINS&#x3D;&#x27;plugin1 plugin2&#x27; sgmed&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in constants.ts:6</li>
+							<li>Defined in constants.ts:12</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Help text for CLI</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="metatypes" class="tsd-anchor"></a>
@@ -254,9 +267,14 @@
 					<div class="tsd-signature tsd-kind-icon">Runtime<wbr>Identifiers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;Object.freeze({COCOS_CREATOR_V1: [&#x27;cc1&#x27;, &#x27;cocos1&#x27;, &#x27;cocoscreator1&#x27;],COCOS_CREATOR_V2: [&#x27;cc&#x27;, &#x27;cc2&#x27;, &#x27;cocos&#x27;, &#x27;cocos2&#x27;, &#x27;cocoscreator&#x27;, &#x27;cocoscreator2&#x27;]})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in constants.ts:1</li>
+							<li>Defined in constants.ts:4</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Runtime identifiers</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -313,9 +331,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in modules/parseArgs.ts:4</li>
+									<li>Defined in modules/parseArgs.ts:7</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parses CLI argument via process.env and convert to Args type.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="interfaces/args.html" class="tsd-signature-type">Args</a></h4>
 						</li>
 					</ul>
@@ -346,9 +369,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/exportmanager.html" class="tsd-kind-icon">Export<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/resourcemap.html" class="tsd-kind-icon">Resource<wbr>Map</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/args.html" class="tsd-kind-icon">Args</a>
@@ -381,9 +401,6 @@
 						<a href="interfaces/componentuuidentity.html" class="tsd-kind-icon">Component<wbr>Uuid<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/exporterplugin.html" class="tsd-kind-icon">Exporter<wbr>Plugin</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/importer.html" class="tsd-kind-icon">Importer</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -411,6 +428,9 @@
 						<a href="interfaces/sceneexporterconstructor.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Constructor</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/sceneexporterplugin.html" class="tsd-kind-icon">Scene<wbr>Exporter<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/size.html" class="tsd-kind-icon">Size</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -425,7 +445,7 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#assetexportmapentity" class="tsd-kind-icon">Asset<wbr>Export<wbr>Map<wbr>Entity</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
 						<a href="globals.html#resourcemapentity" class="tsd-kind-icon">Resource<wbr>Map<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-variable">

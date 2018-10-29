@@ -1,8 +1,14 @@
+/**
+ * Runtime identifiers
+ */
 export const RuntimeIdentifiers = Object.freeze({
   COCOS_CREATOR_V1: ['cc1', 'cocos1', 'cocoscreator1'],
   COCOS_CREATOR_V2: ['cc', 'cc2', 'cocos', 'cocos2', 'cocoscreator', 'cocoscreator2']
 });
 
+/**
+ * Help text for CLI
+ */
 export const CliHelptext = `Usage:
 set environment variable as below, then execute lib/index.js with node
 required:

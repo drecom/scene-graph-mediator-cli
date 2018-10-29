@@ -1,3 +1,6 @@
+/**
+ * Interface for asset exporter plugin
+ */
 declare type AssetExportMapEntity = {
     localSrcPath: string;
     localDestPath: string;

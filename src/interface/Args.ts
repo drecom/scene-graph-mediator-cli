@@ -1,3 +1,6 @@
+/**
+ * CLI argument place holder
+ */
 export default interface Args {
   runtime:        string;
   assetRoot:      string;

@@ -20,6 +20,9 @@ const ResourceType: {
   ATLAS: 'Atlas',
 });
 
+/**
+ * Entity data structure of resource map.
+ */
 type ResourceMapEntity = {
   id: string;
   path: string;
@@ -29,10 +32,13 @@ type ResourceMapEntity = {
 };
 
 /**
- * CocosCreator scene exporter
+ * CocosCreator V1.x scene exporter
  */
 export default class CocosCreator implements SceneExporter {
 
+  /**
+   * Returns runtime identifier string.
+   */
   public getIdentifier(): string {
     return 'cocoscreator';
   }
@@ -67,6 +73,9 @@ export default class CocosCreator implements SceneExporter {
     return graphs;
   }
 
+  /**
+   * Read scene file using file system and convert to javascript object.
+   */
   public loadSceneFile(sceneFile: string): any {
     const content = fs.readFileSync(sceneFile).toString();
     return JSON.parse(content);
@@ -100,6 +109,9 @@ export default class CocosCreator implements SceneExporter {
     return graph;
   }
 
+  /**
+   * Execute plugin post process
+   */
   public pluginPostProcess(
     graph: SchemaJson,
     sceneJson: any[],
@@ -129,6 +141,9 @@ export default class CocosCreator implements SceneExporter {
     return resourceMap;
   }
 
+  /**
+   * Create array of RespirceMapEntity
+   */
   protected createResourceMapEntities(absPath: string): ResourceMapEntity[] {
     const entities: ResourceMapEntity[] = [];
 
@@ -264,6 +279,9 @@ export default class CocosCreator implements SceneExporter {
     });
   }
 
+  /**
+   * Returns object with Transform schema using Cocos Node data.
+   */
   protected createDefaultTransform(component: cc.ComponentBase): Transform {
     const node = component as cc.Node;
 
@@ -284,6 +302,9 @@ export default class CocosCreator implements SceneExporter {
     };
   }
 
+  /**
+   * Append metadata to scene graph data
+   */
   protected appendMetaData(json: any[], graph: SchemaJson) {
     const component = this.findComponentByType(json, cc.MetaTypes.CANVAS) as cc.Canvas;
     if (!component) {
@@ -306,6 +327,9 @@ export default class CocosCreator implements SceneExporter {
     };
   }
 
+  /**
+   * Append supported components to scene graph node
+   */
   protected appendComponents(
     json: cc.ComponentBase[],
     graph: SchemaJson,
@@ -326,6 +350,9 @@ export default class CocosCreator implements SceneExporter {
     }
   }
 
+  /**
+   * Detect and append supported component to scene graph node
+   */
   protected appendComponentByType(
     schemaNode: Node,
     component: cc.Component,
@@ -443,6 +470,9 @@ export default class CocosCreator implements SceneExporter {
     }
   }
 
+  /**
+   * Find and return component data if node has target component
+   */
   protected findComponentByType(json: cc.ComponentBase[], type: string): cc.ComponentBase | null {
     for (let i = 0; i < json.length; i++) {
       const component = json[i];
@@ -454,6 +484,9 @@ export default class CocosCreator implements SceneExporter {
     return null;
   }
 
+  /**
+   * Find node in scene grapph by id
+   */
   protected findSchemaNodeById(graph: SchemaJson, id: string): Node | null {
     const scene = graph.scene;
     for (let i = 0; i < scene.length; i++) {

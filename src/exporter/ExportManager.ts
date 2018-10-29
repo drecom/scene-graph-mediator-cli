@@ -6,12 +6,21 @@ import AssetExporterConstructor from '../interface/AssetExporterConstructor';
 import AssetExportMapEntity from '../interface/AssetExportMapEntity';
 import { RuntimeIdentifiers } from '../constants';
 
+/**
+ * Bundles each export processes and manages running them.
+ */
 export default class ExportManager {
+  /**
+   * Plugins placeholder
+   */
   private plugins = {
     assets: new Map<string, AssetExporterPlugin>(),
     scenes: new Map<string, SceneExporterPlugin>()
   };
 
+  /**
+   * Dyamically loads scene exporter implements
+   */
   public static getSceneExporterClass(runtimeId: string): SceneExporterConstructor | null {
     const id = runtimeId.toLowerCase();
 
@@ -24,6 +33,9 @@ export default class ExportManager {
     return null;
   }
 
+  /**
+   * Dyamically loads asset exporter implements
+   */
   public static getAssetExporterClass(runtimeId: string): AssetExporterConstructor | null {
     const id = runtimeId.toLowerCase();
 
@@ -36,6 +48,9 @@ export default class ExportManager {
     return null;
   }
 
+  /**
+   * Dynamically loads user defined plugin by absolute module path
+   */
   public loadPlugins(paths: string[]): void {
     for (let i = 0; i < paths.length; i++) {
       const Plugin = require(paths[i]);
@@ -50,6 +65,9 @@ export default class ExportManager {
     }
   }
 
+  /**
+   * Exports scene graphs for given scene file paths
+   */
   public exportScene(
     runtimeIdentifier: string,
     sceneFiles: string[],
@@ -66,6 +84,9 @@ export default class ExportManager {
     return sceneGraphs;
   }
 
+  /**
+   * Create map for exporting assets
+   */
   public exportAsset(
     sceneGraphs: Map<string, SchemaJson>,
     runtimeIdentifier: string,

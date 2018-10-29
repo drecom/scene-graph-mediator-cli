@@ -1,6 +1,9 @@
 import * as path from 'path';
 import Args from '../interface/Args';
 
+/**
+ * Parses CLI argument via process.env and convert to Args type.
+ */
 export default function parseArgs(): Args {
   const args: Args = {
     runtime:        process.env.RUNTIME    || '',

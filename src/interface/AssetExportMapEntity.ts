@@ -1,3 +1,6 @@
+/**
+ * Interface for asset exporter plugin
+ */
 type AssetExportMapEntity = {
   localSrcPath:  string,
   localDestPath: string,

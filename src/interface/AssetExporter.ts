@@ -2,6 +2,9 @@ import { SchemaJson } from '@drecom/scene-graph-schema';
 import AssetExporterPlugin from './AssetExporterPlugin';
 import AssetExportMapEntity from './AssetExportMapEntity';
 
+/**
+ * Interface for exporter implementation of assets
+ */
 export default interface AssetExporter {
   createExportMap(
     sceneGraphMap: Map<string, SchemaJson>,
