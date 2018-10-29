@@ -1,2 +1,3 @@
-#!/usr/bin/env node
-export {};
+import cli from './cli';
+import * as sgmed from './exports';
+export { sgmed, cli };

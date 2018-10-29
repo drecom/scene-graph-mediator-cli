@@ -1,10 +1,10 @@
 {
   "name": "@drecom/scene-graph-mediator-cli",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "bin": {
-    "sgmed": "lib/index.js"
+    "sgmed": "bin/cli.js"
   },
   "license": "MIT",
   "repository": {

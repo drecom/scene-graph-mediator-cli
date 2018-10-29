@@ -31,7 +31,7 @@
     "lib"
   ],
   "typedocOptions": {
-    "name": "pixi-scene-graph",
+    "name": "scene-graph-mediator-cli",
     "mode": "file",
     "out": "./docs",
     "gitRevision": "develop",
