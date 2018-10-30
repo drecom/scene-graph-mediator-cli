@@ -53,7 +53,7 @@ export default class ExportManager {
    */
   public loadPlugins(paths: string[]): void {
     for (let i = 0; i < paths.length; i++) {
-      const Plugin = require(paths[i]);
+      const Plugin = require(paths[i]).default;
       const instance = new Plugin() as AssetExporterPlugin | SceneExporterPlugin;
       if ((instance as AssetExporterPlugin).replaceExtendedPaths) {
         this.plugins.assets.set(Plugin.name, instance as AssetExporterPlugin);
