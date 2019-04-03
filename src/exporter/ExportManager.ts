@@ -26,7 +26,8 @@ export default class ExportManager {
 
     if (RuntimeIdentifiers.COCOS_CREATOR_V1.indexOf(id) !== -1) {
       return require('../exporter/scene/CocosCreator').default;
-    } else if (RuntimeIdentifiers.COCOS_CREATOR_V2.indexOf(id) !== -1) {
+    }
+    if (RuntimeIdentifiers.COCOS_CREATOR_V2.indexOf(id) !== -1) {
       return require('../exporter/scene/CocosCreatorV2').default;
     }
 
@@ -41,7 +42,8 @@ export default class ExportManager {
 
     if (RuntimeIdentifiers.COCOS_CREATOR_V1.indexOf(id)) {
       return require('../exporter/asset/CocosCreator').default;
-    } else if (RuntimeIdentifiers.COCOS_CREATOR_V2.indexOf(id)) {
+    }
+    if (RuntimeIdentifiers.COCOS_CREATOR_V2.indexOf(id)) {
       return require('../exporter/asset/CocosCreatorV2').default;
     }
 
@@ -79,7 +81,8 @@ export default class ExportManager {
     }
 
     const exporter = new ExporterClass();
-    const sceneGraphs = exporter.createSceneGraphSchemas(sceneFiles, assetRoot, this.plugins.scenes);
+    const sceneGraphs =
+      exporter.createSceneGraphSchemas(sceneFiles, assetRoot, this.plugins.scenes);
 
     return sceneGraphs;
   }
@@ -100,7 +103,8 @@ export default class ExportManager {
     }
 
     const exporter  = new ExporterClass();
-    const exportMap = exporter.createExportMap(sceneGraphs, assetRoot, destDir, urlNameSpace, this.plugins.assets);
+    const exportMap =
+      exporter.createExportMap(sceneGraphs, assetRoot, destDir, urlNameSpace, this.plugins.assets);
     exporter.replacePaths(sceneGraphs, exportMap, this.plugins.assets);
 
     return exportMap;

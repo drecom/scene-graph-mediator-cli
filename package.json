@@ -16,6 +16,7 @@
     "build:lib": "tsc -p .",
     "build:docs": "typedoc 'src/'",
     "lint": "tslint -p tsconfig.json --format stylish 'src/**/*.ts*'",
+    "fixlint": "tslint -p tsconfig.json --format stylish --fix 'src/**/*.ts*'",
     "workflow:build": "npm run build:lib && npm run build:docs"
   },
   "keywords": [],
